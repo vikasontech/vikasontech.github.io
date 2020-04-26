@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Vikas Blogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 25 Apr 2020 23:05:40 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 26 Apr 2020 07:15:08 +0700</lastBuildDate>
     
 	<atom:link href="https://vikasontech.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,36 @@
     <item>
       <title>kotlin</title>
       <link>https://vikasontech.github.io/tags/kotlin/</link>
-      <pubDate>Sat, 25 Apr 2020 23:05:40 +0700</pubDate>
+      <pubDate>Sun, 26 Apr 2020 07:15:08 +0700</pubDate>
       
       <guid>https://vikasontech.github.io/tags/kotlin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mongo</title>
+      <link>https://vikasontech.github.io/tags/mongo/</link>
+      <pubDate>Sun, 26 Apr 2020 07:15:08 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/tags/mongo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spring</title>
+      <link>https://vikasontech.github.io/tags/spring/</link>
+      <pubDate>Sun, 26 Apr 2020 07:15:08 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/tags/spring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>testcontainer</title>
+      <link>https://vikasontech.github.io/tags/testcontainer/</link>
+      <pubDate>Sun, 26 Apr 2020 07:15:08 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/tags/testcontainer/</guid>
       <description></description>
     </item>
     

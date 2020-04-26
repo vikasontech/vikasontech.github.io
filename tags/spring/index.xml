@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Vikas Blogs</title>
-    <link>https://vikasontech.github.io/</link>
-    <description>Recent content on Vikas Blogs</description>
+    <title>spring on Vikas Blogs</title>
+    <link>https://vikasontech.github.io/tags/spring/</link>
+    <description>Recent content in spring on Vikas Blogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 26 Apr 2020 07:15:08 +0700</lastBuildDate>
     
-	<atom:link href="https://vikasontech.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vikasontech.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -22,20 +22,6 @@ In this project we shall see how to use testcontainer to test the repository cre
 Prerequisit
  Docker  Create sample project
 Go to the spring initializer and create project with language as kotlin and dependencies required are webflux &amp;amp; reactive mongo db</description>
-    </item>
-    
-    <item>
-      <title>Add swagger to the kotlin spring </title>
-      <link>https://vikasontech.github.io/posts/add-swagger-to-the-kotlin-spring-boot-project/</link>
-      <pubDate>Sat, 25 Apr 2020 23:05:40 +0700</pubDate>
-      
-      <guid>https://vikasontech.github.io/posts/add-swagger-to-the-kotlin-spring-boot-project/</guid>
-      <description>Introduction
-In this short article we shall see how to configure swagger with spring webflux project. We create a project on spring initializer and then shall configure swagger.
-Dependencies
-Create a project on the spring boot initializer page with dependency as &amp;lsquo;webflux&amp;rsquo; and language as &amp;lsquo;java&amp;rsquo;
-In order to work swagger with kotlin you need to add the following repositories in you pom.xml file.
- Since the swagger dependencyis available in another repository you need to add that repository as well in you &amp;lsquo;pom.</description>
     </item>
     
   </channel>

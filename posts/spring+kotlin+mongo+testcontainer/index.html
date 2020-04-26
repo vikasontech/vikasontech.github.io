@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Vikas Verma">
+    <meta name="description" content="Vikas&#39;s personal website">
+    <meta name="keywords" content="Blogger, Developer, Scurm Master">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring&#43;kotlin&#43;mongo&#43;testcontainer"/>
+<meta name="twitter:description" content="Introduction
+In this project we shall see how to use testcontainer to test the repository created in mongodb As per their document Testcontainers is a Java library that supports JUnit tests, providing lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can run in a Docker container.
+Prerequisit
+ Docker  Create sample project
+Go to the spring initializer and create project with language as kotlin and dependencies required are webflux &amp; reactive mongo db"/>
+
+    <meta property="og:title" content="Spring&#43;kotlin&#43;mongo&#43;testcontainer" />
+<meta property="og:description" content="Introduction
+In this project we shall see how to use testcontainer to test the repository created in mongodb As per their document Testcontainers is a Java library that supports JUnit tests, providing lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can run in a Docker container.
+Prerequisit
+ Docker  Create sample project
+Go to the spring initializer and create project with language as kotlin and dependencies required are webflux &amp; reactive mongo db" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vikasontech.github.io/posts/spring&#43;kotlin&#43;mongo&#43;testcontainer/" />
+<meta property="article:published_time" content="2020-04-26T07:15:08+07:00" />
+<meta property="article:modified_time" content="2020-04-26T07:15:08+07:00" />
+
+
+    
+      <base href="https://vikasontech.github.io/posts/spring&#43;kotlin&#43;mongo&#43;testcontainer/">
+    
+    <title>
+  Spring&#43;kotlin&#43;mongo&#43;testcontainer · Vikas Blogs
+</title>
+
+    
+      <link rel="canonical" href="https://vikasontech.github.io/posts/spring&#43;kotlin&#43;mongo&#43;testcontainer/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://vikasontech.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://vikasontech.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://vikasontech.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.69.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://vikasontech.github.io/">
+      Vikas Blogs
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vikasontech.github.io/posts/">Blogs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vikasontech.github.io/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Spring&#43;kotlin&#43;mongo&#43;testcontainer</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-04-26T07:15:08&#43;07:00'>
+                April 26, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              2-minute read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://vikasontech.github.io/categories/technical/">Technical</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://vikasontech.github.io/tags/testcontainer/">testcontainer</a>
+      <span class="separator">•</span>
+    <a href="https://vikasontech.github.io/tags/spring/">spring</a>
+      <span class="separator">•</span>
+    <a href="https://vikasontech.github.io/tags/kotlin/">kotlin</a>
+      <span class="separator">•</span>
+    <a href="https://vikasontech.github.io/tags/mongo/">mongo</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p><strong>Introduction</strong></p>
+<p>In this project we shall see how to use <a href="https://www.testcontainers.org/">testcontainer</a> to test the repository created in <a href="https://www.mongodb.com/">mongodb</a> As per their document Testcontainers is a Java library that supports JUnit tests, providing lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can run in a Docker container.</p>
+<p><strong>Prerequisit</strong></p>
+<ul>
+<li>Docker</li>
+</ul>
+<p><strong>Create sample project</strong></p>
+<p>Go to the <a href="http://start.spring.io">spring initializer</a> and create project with language as kotlin and dependencies required are <code>webflux</code> &amp; <code>reactive mongo db</code></p>
+<p>Here we shall create a loan details application, where we will save loan details.</p>
+<p><strong>Dependency for testcontainer</strong></p>
+<p>We need following depencies to add testconainer in the appliation
+<script type="application/javascript" src="https://gist.github.com/vikasontech/9870bb368b01f5a7ae07148efd2276f8.js"></script>
+</p>
+<p><strong>Container Configuration</strong></p>
+<p>Create docker compose file for the test container we shall use the same docker-compose.yml file as we are using for the application, except we shall change the port for the test docker container.
+it should look like this-</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/3d2b48ee2c50a390c36a9d57cedb5386.js"></script>
+
+<p>Note: here we are mapping docker container port at <code>1234</code> some random port it can be any number that are available.</p>
+<p>The file path should be <code>src/test/resources/docker-compose-test.yml</code></p>
+<p>Create a container class that extends docker compose container class be used as mongo container</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/f4bc3ac99aa38cdfe130ff572c55f478.js"></script>
+
+<p>The code is very simple and self explanatory, at <code>line:2</code> we create a <code>DockerComposeContainer</code> of type <code>SELF</code> <code>MongoContainer</code> and provide path of test docker compose file.</p>
+<p>We created it as a singleton repository and use <code>@PostConstruct</code> to start the container once the dependency injection is done.</p>
+<p>That&rsquo;s all we need to start with testconatainer.</p>
+<p><strong>Create basic structure of the application</strong></p>
+<p>Create a <code>document</code> class to save in mongo</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/538fe51780ebe36103dd5f395b5b561d.js"></script>
+
+<p>Create an <code>repository</code> to access data from the DB.</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/434440bacb6ae4c8b65d81024274e08f.js"></script>
+
+<p>Create an <code>service</code> class to access the loan details.</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/e0970e10dfc16f24195a8f932537a0dc.js"></script>
+
+<p><strong>Create first test case</strong></p>
+<p>Let&rsquo;s create our first test case as below</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/a9bd4b673a792f94ca426d1ad988d981.js"></script>
+
+<p>The test case is preety normal and same we write. There is nothing special we need to do for testcontainers here.</p>
+<p><strong>Run Test</strong></p>
+<p>Before run local test do ensure that the docker is running on your machine.</p>
+<p><strong>Repository</strong></p>
+<p>Create repository and link <a href="https://github.com/vikasontech/KotlinWebFluxMongoTestContainer.git/">here</a>.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2020
+         Vikas Verma 
+      
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+
+  </body>
+
+</html>
