@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Vikas Blogs</title>
-    <link>https://vikasontech.github.io/posts/</link>
-    <description>Recent content in Posts on Vikas Blogs</description>
+    <title>spring-boot on Vikas Blogs</title>
+    <link>https://vikasontech.github.io/tags/spring-boot/</link>
+    <description>Recent content in spring-boot on Vikas Blogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 25 Apr 2020 23:05:40 +0700</lastBuildDate>
     
-	<atom:link href="https://vikasontech.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vikasontech.github.io/tags/spring-boot/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

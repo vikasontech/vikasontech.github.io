@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Vikas Verma">
+    <meta name="description" content="Vikas&#39;s personal website">
+    <meta name="keywords" content="Blogger, Developer, Scurm Master">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Add swagger to the kotlin spring "/>
+<meta name="twitter:description" content="Add swagger to the kotlin spring boot project"/>
+
+    <meta property="og:title" content="Add swagger to the kotlin spring " />
+<meta property="og:description" content="Add swagger to the kotlin spring boot project" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vikasontech.github.io/posts/add-swagger-to-the-kotlin-spring-boot-project/" />
+<meta property="article:published_time" content="2020-04-25T23:05:40+07:00" />
+<meta property="article:modified_time" content="2020-04-25T23:05:40+07:00" />
+
+
+    
+      <base href="https://vikasontech.github.io/posts/add-swagger-to-the-kotlin-spring-boot-project/">
+    
+    <title>
+  Add swagger to the kotlin spring  · Vikas Blogs
+</title>
+
+    
+      <link rel="canonical" href="https://vikasontech.github.io/posts/add-swagger-to-the-kotlin-spring-boot-project/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://vikasontech.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://vikasontech.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://vikasontech.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.69.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://vikasontech.github.io/">
+      Vikas Blogs
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vikasontech.github.io/posts/">Blogs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vikasontech.github.io/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Add swagger to the kotlin spring </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-04-25T23:05:40&#43;07:00'>
+                April 25, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              1-minute read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://vikasontech.github.io/categories/technical/">technical</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://vikasontech.github.io/tags/swagger/">swagger</a>
+      <span class="separator">•</span>
+    <a href="https://vikasontech.github.io/tags/kotlin/">kotlin</a>
+      <span class="separator">•</span>
+    <a href="https://vikasontech.github.io/tags/spring-boot/">spring-boot</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p><strong>Introduction</strong></p>
+<p>In this short article we shall see how to configure swagger with spring webflux project. We create a project on spring initializer and then shall configure swagger.</p>
+<p><strong>Dependencies</strong></p>
+<p>Create a project on the spring boot initializer page with dependency as &lsquo;webflux&rsquo; and language as &lsquo;java&rsquo;</p>
+<p><img src="https://vikasontech.github.io/images/20200116/spring-initializer.png" alt="spring initializer"></p>
+<p>In order to work swagger with kotlin you need to add the following repositories in you pom.xml file.</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/a5dd22e084c90f46189bd5fdff5b03c6.js"></script>
+
+<p>Since the swagger dependencyis available in another repository you need to add that repository as well in you &lsquo;pom.xml&rsquo; file as below-</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/b53e428ae9ddfe5faeefe9882d36c89a.js"></script>
+
+<p><strong>Setup swagger with kotlin</strong></p>
+<p>Create a class called &lsquo;SwaggerCofig&rsquo; this class is responsible to configure Docket for our application as below</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/7fa314501ad66bc46ad2a00c04d356ec.js"></script>
+
+<p>at line no# 9 we set the path of the rest controllers, swagger will scan this package to pick the endpoints.</p>
+<p><strong>Create a sample response object</strong></p>
+<p>Create a simple <code>LoanDetailFacade</code> that will contains the details about the loan.</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/538fe51780ebe36103dd5f395b5b561d.js"></script>
+
+<p><strong>Create rest controller</strong></p>
+<p>It&rsquo;s the same as we do in spring web create some endpoints as below</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/9583ef4551ee379bc8f7a8f1e1fc2cb4.js"></script>
+
+<p><strong>Test Application</strong></p>
+<p>To run the application use below commn
+mvn spring-boot:run</p>
+<p>go to the url http://localhost:8080/swagger-ui.html</p>
+<p>the swagger page should show like this</p>
+<p><img src="https://vikasontech.github.io/images/20200116/swagger-ui.png" alt="swagger ui example"></p>
+<p><strong>Repository</strong></p>
+<p>The full source code is available here <a href="https://github.com/vikasontech/kotlinWithSwagger" title="Github">GitHub</a>.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2020
+         Vikas Verma 
+      
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+
+  </body>
+
+</html>

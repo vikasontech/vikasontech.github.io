@@ -3,48 +3,48 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://vikasontech.github.io/posts/add-swagger-to-the-kotlin-spring-boot-project/</loc>
+    <lastmod>2020-04-25T23:05:40+07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://vikasontech.github.io/categories/</loc>
-    <lastmod>2020-04-22T22:19:36+07:00</lastmod>
+    <lastmod>2020-04-25T23:05:40+07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://vikasontech.github.io/tags/first/</loc>
-    <lastmod>2020-04-22T22:19:36+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vikasontech.github.io/tags/my/</loc>
-    <lastmod>2020-04-22T22:19:36+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vikasontech.github.io/posts/my-first-post/</loc>
-    <lastmod>2020-04-22T22:19:36+07:00</lastmod>
+    <loc>https://vikasontech.github.io/tags/kotlin/</loc>
+    <lastmod>2020-04-25T23:05:40+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://vikasontech.github.io/posts/</loc>
-    <lastmod>2020-04-22T22:19:36+07:00</lastmod>
+    <lastmod>2020-04-25T23:05:40+07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://vikasontech.github.io/categories/sample/</loc>
-    <lastmod>2020-04-22T22:19:36+07:00</lastmod>
+    <loc>https://vikasontech.github.io/tags/spring-boot/</loc>
+    <lastmod>2020-04-25T23:05:40+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/tags/swagger/</loc>
+    <lastmod>2020-04-25T23:05:40+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://vikasontech.github.io/tags/</loc>
-    <lastmod>2020-04-22T22:19:36+07:00</lastmod>
+    <lastmod>2020-04-25T23:05:40+07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://vikasontech.github.io/categories/test/</loc>
-    <lastmod>2020-04-22T22:19:36+07:00</lastmod>
+    <loc>https://vikasontech.github.io/categories/technical/</loc>
+    <lastmod>2020-04-25T23:05:40+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://vikasontech.github.io/</loc>
-    <lastmod>2020-04-22T22:19:36+07:00</lastmod>
+    <lastmod>2020-04-25T23:05:40+07:00</lastmod>
   </url>
   
 </urlset>

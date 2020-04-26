@@ -6,25 +6,23 @@
     <description>Recent content on Vikas Blogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 22 Apr 2020 22:19:36 +0700</lastBuildDate>
+    <lastBuildDate>Sat, 25 Apr 2020 23:05:40 +0700</lastBuildDate>
     
 	<atom:link href="https://vikasontech.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>my first post</title>
-      <link>https://vikasontech.github.io/posts/my-first-post/</link>
-      <pubDate>Wed, 22 Apr 2020 22:19:36 +0700</pubDate>
+      <title>Add swagger to the kotlin spring </title>
+      <link>https://vikasontech.github.io/posts/add-swagger-to-the-kotlin-spring-boot-project/</link>
+      <pubDate>Sat, 25 Apr 2020 23:05:40 +0700</pubDate>
       
-      <guid>https://vikasontech.github.io/posts/my-first-post/</guid>
-      <description>This is an H1 This is an H2 This is an H6 This is also an H1 This is also an H2 Italic characters
-Italic characters
-bold characters
-bold charactersabcd
-strikethrough text
-Unordered list
- Item 1 Item 2 Item 3  Item 3a Item 3b Item 3c    Ordered list
- Step 1 Step 2 Step 3  Step 3.1 Step 3.2 Step 3.3    List in list</description>
+      <guid>https://vikasontech.github.io/posts/add-swagger-to-the-kotlin-spring-boot-project/</guid>
+      <description>Introduction
+In this short article we shall see how to configure swagger with spring webflux project. We create a project on spring initializer and then shall configure swagger.
+Dependencies
+Create a project on the spring boot initializer page with dependency as &amp;lsquo;webflux&amp;rsquo; and language as &amp;lsquo;java&amp;rsquo;
+In order to work swagger with kotlin you need to add the following repositories in you pom.xml file.
+ Since the swagger dependencyis available in another repository you need to add that repository as well in you &amp;lsquo;pom.</description>
     </item>
     
   </channel>
