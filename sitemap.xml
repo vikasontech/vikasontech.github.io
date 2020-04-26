@@ -54,17 +54,17 @@
   
   <url>
     <loc>https://vikasontech.github.io/posts/add-swagger-to-the-kotlin-spring-boot-project/</loc>
-    <lastmod>2020-04-25T23:05:40+07:00</lastmod>
+    <lastmod>2020-01-16T23:05:40+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://vikasontech.github.io/tags/spring-boot/</loc>
-    <lastmod>2020-04-25T23:05:40+07:00</lastmod>
+    <lastmod>2020-01-16T23:05:40+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://vikasontech.github.io/tags/swagger/</loc>
-    <lastmod>2020-04-25T23:05:40+07:00</lastmod>
+    <lastmod>2020-01-16T23:05:40+07:00</lastmod>
   </url>
   
   <url>
@@ -95,6 +95,26 @@
   <url>
     <loc>https://vikasontech.github.io/posts/scala-mongo-example-with-akka-http-and-akka-stream/</loc>
     <lastmod>2019-12-23T16:22:54+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/tags/rest-service/</loc>
+    <lastmod>2019-12-10T08:56:15+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/tags/scala-example/</loc>
+    <lastmod>2019-12-10T08:56:15+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/posts/scala-rest-api-with-akka-http/</loc>
+    <lastmod>2019-12-10T08:56:15+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/tags/web-service/</loc>
+    <lastmod>2019-12-10T08:56:15+07:00</lastmod>
   </url>
   
 </urlset>
