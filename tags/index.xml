@@ -65,5 +65,50 @@
       <description></description>
     </item>
     
+    <item>
+      <title>akka</title>
+      <link>https://vikasontech.github.io/tags/akka/</link>
+      <pubDate>Mon, 23 Dec 2019 16:22:54 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/tags/akka/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>akka-http</title>
+      <link>https://vikasontech.github.io/tags/akka-http/</link>
+      <pubDate>Mon, 23 Dec 2019 16:22:54 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/tags/akka-http/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://vikasontech.github.io/tags/docker/</link>
+      <pubDate>Mon, 23 Dec 2019 16:22:54 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sbt</title>
+      <link>https://vikasontech.github.io/tags/sbt/</link>
+      <pubDate>Mon, 23 Dec 2019 16:22:54 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/tags/sbt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scala</title>
+      <link>https://vikasontech.github.io/tags/scala/</link>
+      <pubDate>Mon, 23 Dec 2019 16:22:54 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/tags/scala/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
