@@ -6,7 +6,7 @@
     <description>Recent content in technical on Vikas Blogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 26 Apr 2020 07:15:08 +0700</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jan 2020 07:15:08 +0700</lastBuildDate>
     
 	<atom:link href="https://vikasontech.github.io/categories/technical/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Spring&#43;kotlin&#43;mongo&#43;testcontainer</title>
       <link>https://vikasontech.github.io/posts/spring&#43;kotlin&#43;mongo&#43;testcontainer/</link>
-      <pubDate>Sun, 26 Apr 2020 07:15:08 +0700</pubDate>
+      <pubDate>Sat, 18 Jan 2020 07:15:08 +0700</pubDate>
       
       <guid>https://vikasontech.github.io/posts/spring&#43;kotlin&#43;mongo&#43;testcontainer/</guid>
       <description>Introduction
@@ -66,6 +66,46 @@ Versions
 We’ll create two actors that communicate with each other to get the user data and user activity data.
 Data Classes
 We need two data classes that keeps the user data and user activity data.</description>
+    </item>
+    
+    <item>
+      <title>Secure spring boot application with keycloak</title>
+      <link>https://vikasontech.github.io/posts/secure-spring-boot-application-with-keycloak/</link>
+      <pubDate>Fri, 30 Nov 2018 12:32:26 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/posts/secure-spring-boot-application-with-keycloak/</guid>
+      <description>In last blog post of this series we saw how we can configure keycloak for our application. Now in this tutorial we will see how we can use keycloak with spring boot.
+Prerequisite
+ Docker Keycloak  Version
+ Spring Boo: 1.5.17.RELEASE Java: 1.8 Keycloak: 4.0.5-Final  Create sample spring boot application Dependencies
+ Spring-boot-starter-web Keycloak-spring-boot-starter  Create rest controller class
+ Secure App with keycloak
+Add maven dependency for keycloak and spring security -</description>
+    </item>
+    
+    <item>
+      <title>Setup keycloak sercurity for spring boot application</title>
+      <link>https://vikasontech.github.io/posts/setup-keycloak-sercurity-for-spring-boot-application/</link>
+      <pubDate>Fri, 30 Nov 2018 11:55:00 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/posts/setup-keycloak-sercurity-for-spring-boot-application/</guid>
+      <description>Setup Realm and clients in keycloak
+This blog is the second part of the series of security spring boot application with keycloak. In first part we install setup in keycloak with docker you can see first part here.
+Version:
+ Keycloak: 4.5.0.Final Pre-requisites Keycloak should be installed in the  Create realm A realm secures and manages security metadata for a set of users, applications, and registered oauth clients. Users can be created within a specific realm within the Administration console.</description>
+    </item>
+    
+    <item>
+      <title>Setup Keycloak with Docker</title>
+      <link>https://vikasontech.github.io/posts/setup-keycloak-with-docker/</link>
+      <pubDate>Sun, 18 Nov 2018 11:49:10 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/posts/setup-keycloak-with-docker/</guid>
+      <description>Introduction of Keycloak
+Open Source Identity and Access Management For Modern Applications and Services. It add authentication to applications and secure services with minimum fuss. No need to deal with storing users or authenticating users. It&amp;rsquo;s all available out of the box.
+You&amp;rsquo;ll even get advanced features such as User Federation, Identity Brokering and Social Login.
+Prerequisites:
+ Docker:  Since we are using Docker to install Keycloak; it should be installed on your machine.</description>
     </item>
     
   </channel>

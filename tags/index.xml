@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Vikas Blogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 26 Apr 2020 07:15:08 +0700</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jan 2020 07:15:08 +0700</lastBuildDate>
     
 	<atom:link href="https://vikasontech.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>kotlin</title>
       <link>https://vikasontech.github.io/tags/kotlin/</link>
-      <pubDate>Sun, 26 Apr 2020 07:15:08 +0700</pubDate>
+      <pubDate>Sat, 18 Jan 2020 07:15:08 +0700</pubDate>
       
       <guid>https://vikasontech.github.io/tags/kotlin/</guid>
       <description></description>
@@ -23,7 +23,7 @@
     <item>
       <title>mongo</title>
       <link>https://vikasontech.github.io/tags/mongo/</link>
-      <pubDate>Sun, 26 Apr 2020 07:15:08 +0700</pubDate>
+      <pubDate>Sat, 18 Jan 2020 07:15:08 +0700</pubDate>
       
       <guid>https://vikasontech.github.io/tags/mongo/</guid>
       <description></description>
@@ -32,7 +32,7 @@
     <item>
       <title>spring</title>
       <link>https://vikasontech.github.io/tags/spring/</link>
-      <pubDate>Sun, 26 Apr 2020 07:15:08 +0700</pubDate>
+      <pubDate>Sat, 18 Jan 2020 07:15:08 +0700</pubDate>
       
       <guid>https://vikasontech.github.io/tags/spring/</guid>
       <description></description>
@@ -41,7 +41,7 @@
     <item>
       <title>testcontainer</title>
       <link>https://vikasontech.github.io/tags/testcontainer/</link>
-      <pubDate>Sun, 26 Apr 2020 07:15:08 +0700</pubDate>
+      <pubDate>Sat, 18 Jan 2020 07:15:08 +0700</pubDate>
       
       <guid>https://vikasontech.github.io/tags/testcontainer/</guid>
       <description></description>
@@ -134,6 +134,42 @@
       <pubDate>Tue, 10 Dec 2019 08:56:15 +0700</pubDate>
       
       <guid>https://vikasontech.github.io/tags/web-service/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>keycloak</title>
+      <link>https://vikasontech.github.io/tags/keycloak/</link>
+      <pubDate>Fri, 30 Nov 2018 12:32:26 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/tags/keycloak/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>secrity</title>
+      <link>https://vikasontech.github.io/tags/secrity/</link>
+      <pubDate>Fri, 30 Nov 2018 12:32:26 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/tags/secrity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://vikasontech.github.io/tags/security/</link>
+      <pubDate>Fri, 30 Nov 2018 11:55:00 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>setup</title>
+      <link>https://vikasontech.github.io/tags/setup/</link>
+      <pubDate>Sun, 18 Nov 2018 11:49:10 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/tags/setup/</guid>
       <description></description>
     </item>
     

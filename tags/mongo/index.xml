@@ -6,7 +6,7 @@
     <description>Recent content in mongo on Vikas Blogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 26 Apr 2020 07:15:08 +0700</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jan 2020 07:15:08 +0700</lastBuildDate>
     
 	<atom:link href="https://vikasontech.github.io/tags/mongo/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Spring&#43;kotlin&#43;mongo&#43;testcontainer</title>
       <link>https://vikasontech.github.io/posts/spring&#43;kotlin&#43;mongo&#43;testcontainer/</link>
-      <pubDate>Sun, 26 Apr 2020 07:15:08 +0700</pubDate>
+      <pubDate>Sat, 18 Jan 2020 07:15:08 +0700</pubDate>
       
       <guid>https://vikasontech.github.io/posts/spring&#43;kotlin&#43;mongo&#43;testcontainer/</guid>
       <description>Introduction

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>secrity on Vikas Blogs</title>
+    <link>https://vikasontech.github.io/tags/secrity/</link>
+    <description>Recent content in secrity on Vikas Blogs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 30 Nov 2018 12:32:26 +0700</lastBuildDate>
+    
+	<atom:link href="https://vikasontech.github.io/tags/secrity/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Secure spring boot application with keycloak</title>
+      <link>https://vikasontech.github.io/posts/secure-spring-boot-application-with-keycloak/</link>
+      <pubDate>Fri, 30 Nov 2018 12:32:26 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/posts/secure-spring-boot-application-with-keycloak/</guid>
+      <description>In last blog post of this series we saw how we can configure keycloak for our application. Now in this tutorial we will see how we can use keycloak with spring boot.
+Prerequisite
+ Docker Keycloak  Version
+ Spring Boo: 1.5.17.RELEASE Java: 1.8 Keycloak: 4.0.5-Final  Create sample spring boot application Dependencies
+ Spring-boot-starter-web Keycloak-spring-boot-starter  Create rest controller class
+ Secure App with keycloak
+Add maven dependency for keycloak and spring security -</description>
+    </item>
+    
+  </channel>
+</rss>

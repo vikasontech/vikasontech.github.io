@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Vikas Verma">
+    <meta name="description" content="Vikas&#39;s personal website">
+    <meta name="keywords" content="Blogger, Developer, Scurm Master">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Setup keycloak sercurity for spring boot application"/>
+<meta name="twitter:description" content="Setup keycloak in spring boot application"/>
+
+    <meta property="og:title" content="Setup keycloak sercurity for spring boot application" />
+<meta property="og:description" content="Setup keycloak in spring boot application" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vikasontech.github.io/posts/setup-keycloak-sercurity-for-spring-boot-application/" />
+<meta property="article:published_time" content="2018-11-30T11:55:00+07:00" />
+<meta property="article:modified_time" content="2018-11-30T11:55:00+07:00" />
+
+
+    
+      <base href="https://vikasontech.github.io/posts/setup-keycloak-sercurity-for-spring-boot-application/">
+    
+    <title>
+  Setup keycloak sercurity for spring boot application · Vikas Blogs
+</title>
+
+    
+      <link rel="canonical" href="https://vikasontech.github.io/posts/setup-keycloak-sercurity-for-spring-boot-application/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://vikasontech.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://vikasontech.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://vikasontech.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.69.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://vikasontech.github.io/">
+      Vikas Blogs
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vikasontech.github.io/posts/">Blogs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vikasontech.github.io/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Setup keycloak sercurity for spring boot application</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2018-11-30T11:55:00&#43;07:00'>
+                November 30, 2018
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              2-minute read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://vikasontech.github.io/categories/technical/">Technical</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://vikasontech.github.io/tags/keycloak/">keycloak</a>
+      <span class="separator">•</span>
+    <a href="https://vikasontech.github.io/tags/security/">security</a>
+      <span class="separator">•</span>
+    <a href="https://vikasontech.github.io/tags/spring-boot/">spring-boot</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p><strong>Setup Realm and clients in keycloak</strong></p>
+<p>This blog is the second part of the series of security spring boot
+application with keycloak. In first part we install setup in keycloak
+with docker you can see first part here.</p>
+<p><strong>Version:</strong></p>
+<ul>
+<li>Keycloak: 4.5.0.Final</li>
+<li>Pre-requisites</li>
+<li>Keycloak should be installed in the</li>
+</ul>
+<p><strong>Create realm</strong> A realm secures and manages security metadata for a set
+of users, applications, and registered oauth clients. Users can be
+created within a specific realm within the Administration console. Click
+on Add realm button</p>
+<p><img src="https://lh4.googleusercontent.com/D-cerVc3PCbzADRwbvUsMaILQVLYIfqKJ4bZlh_XFa56ifmG1qWvEFditp8M4gtM6Pv6QZUG50uX23fLBfRvzLtdIPkX5mHjmCb9VEL4O_ONCWb6WkFZhPu8OLXAsSuZVJuq9Wu5" alt="image"></p>
+<p>Input the realm name</p>
+<p><img src="https://lh6.googleusercontent.com/azCQLitfsOaZfomF02gVfJ1ZCc9Gfao7O7M1ah6Y_kovcvzyYDgh69uKjhOEsP1A3b5ATyDbgyQq3_psoTmt-Cr1eWINDjlCczLjSOF6PSPhUYgiHwMv6sgLLKTJDL57r8DDYTVu" alt="image"></p>
+<p>Once realm created you will see this screen</p>
+<p><img src="https://lh6.googleusercontent.com/qwKNyTDTv3THw_BowCu0YzeDq9TXhTUnhk0Of4juiGxo5xgZDbz03_-7N18XL8xISb6qbN9iQL5U92dVDUTD-BYHEEtLzoM_Z1azypv1WGaOPy5inFceOelpkbhutH5FVGEcaRO8" alt="image"></p>
+<p><strong>Create Client</strong> We need 2 clients one is for bearer-only client for
+the application, and another one is public client to get the access
+token</p>
+<p><img src="https://lh4.googleusercontent.com/D-cerVc3PCbzADRwbvUsMaILQVLYIfqKJ4bZlh_XFa56ifmG1qWvEFditp8M4gtM6Pv6QZUG50uX23fLBfRvzLtdIPkX5mHjmCb9VEL4O_ONCWb6WkFZhPu8OLXAsSuZVJuq9Wu5" alt="image"></p>
+<p>Create Public client</p>
+<p><img src="https://lh6.googleusercontent.com/8a4t3_kpYchQIZDBCaFr7E7WItGyIMAj-kAjJtVrpyVCMmSH0j41M01TeZrBwjXGJHXr-W_RxC28L5HLvTSyO9u7no8_vTUgSIyY05W37jODHirye8f45YHCYXnUNRHMdu52HkRk" alt="image"></p>
+<p>Once public client is created you will see the below screen</p>
+<p>Create Bearer only client and set the access type to beare-only</p>
+<p><img src="https://lh3.googleusercontent.com/UM20ae8FKtq17f_RCzet5nTuG42dUrgyl9gmYhi_a-jtx1XhLIypXszd7z2kbatyNSZodFfP6wdZ5QxjCjuxCAUUPaUdyp26tgxnCnmXprWkA4rUOtvPeukuQvcsaDWmoNkiBHIb" alt="image"></p>
+<p>Add new Admin role for the application client</p>
+<p><img src="https://lh4.googleusercontent.com/D-cerVc3PCbzADRwbvUsMaILQVLYIfqKJ4bZlh_XFa56ifmG1qWvEFditp8M4gtM6Pv6QZUG50uX23fLBfRvzLtdIPkX5mHjmCb9VEL4O_ONCWb6WkFZhPu8OLXAsSuZVJuq9Wu5" alt="image"></p>
+<p>Create Admin Client</p>
+<p><img src="https://lh6.googleusercontent.com/QDzHU9q-1dlYf7pAc8A9OtrPzDcAolc-yweSjKPvMic4EvwuHrQMxD3UyGrXzZugH1fPa8Ke4FyvJz0s51MEYCNXsig18RPQBbxq4nprkqmkOV39sLiuFzfrWhUNqo8-a4swXOud" alt="image"></p>
+<p>Create User Client</p>
+<p><img src="https://lh4.googleusercontent.com/5BfFEIYI98ndYFjp5MHrJ0PBpVNQaMVXewfowYRXKUpld6ySYhTdUXtRk_W5gPPXz4NStjji_ud4Z49oIzVhco9gJw838aGLJh4w8M9d-U3Ip80x_tJbceljy2gaPw04kLsNW7Vj" alt="image"></p>
+<p><strong>Create User for the application</strong> Create two user with role admin with
+and user.</p>
+<p><img src="https://lh3.googleusercontent.com/9r6HttwYY9Y9e1RNYBnbK1iEdBGYlDyni1Df49GB0ILNKvtn2OKdEPAacZxgAjNv612nBLosnMXdoDE1rhvW0f71bcYEUkbMnj0czgzY91fAbEi0ZbQBNbdeukQFBGR69YLP0skg" alt="image"></p>
+<p>Create admin user</p>
+<p><img src="https://lh4.googleusercontent.com/48JZs2zmgmH3QuVi6MzQLRzmScnK04n8Gihns5mxzZe4s7IN21Y8PO_3UactVVzz4vkom4N3HFfj39o44RTui_YyRHNIALQaepXogo3R8F3gMoSdLVAuo2f0GZ58ebzuGxFj8IsH" alt="image"></p>
+<p>Set password</p>
+<p><img src="https://lh6.googleusercontent.com/IV5zzA0Et3iqJ120u69i_FKs5N-4goRgNJCkgRin4TeLPNOxldmN2G7CNVC5gOVnkM8ZNSXfDe4WlLfQ6IvpZHuk5XGWtLcgoVEZVik7mTIM6aN1uYiy2rD_-5-nbbDURPLGMB6T" alt="image"></p>
+<p>Assign admin role to user vik-admin</p>
+<p><img src="https://lh3.googleusercontent.com/VbHS9yiqkju_iz9Inp18WkywhBIS-x9GQrcTZ-RS3l7dE4OlBpbWmyLwRkDqCgw0MD-D5gy0g9arDpUoWog55hCz46mIzZp9yNdEKTnuU_K4KYkYrh1J2ejcRzJrAX4Mwy_BHIzg" alt="image"></p>
+<p>Similarly create another user account vik-user with user role</p>
+<p><img src="https://lh6.googleusercontent.com/te3Nr_no_S9iFvTvkYFHJBA_iWuGA72vXLC08EikmbVBTbYw8byetuFnvifn8yMV1mEHfQntsw-Bu99j6SwcSgBVdN9qr2S7hajWad2jUWKEXzls5aUO95ItXr7COvkg_m8L9FbT" alt="image"></p>
+<p><img src="https://lh5.googleusercontent.com/DcX4ETQKTKxaUFn_hQeEuA3i5wBjt2JFTJ9-qp-ziUIhnUaUaGHIdSTlliN7h6_t9UpwceTFMHUvjdFn0-hRD8QX8sou8qtuTEnIrfyPZmQI8GgXbJf_cad3tFXDMgPJLfSMiwUg" alt="image"></p>
+<p><strong>Get access and refresh token</strong></p>
+<p>User below curl to get the access token</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/ee0e26e7df9e89f7bc59377024531348.js"></script>
+
+<p><strong>Response</strong></p>
+<p><img src="https://lh5.googleusercontent.com/-B8_F-3ei2OGuI_yTQT8ETG4_vmlFZPO5jJPqt_YvIqWIEOEFVj288LtpM6ccBfZanVSVM7j9CCN2xOtBxPIbQq3rH_u4k6DTUpoKS4E4_red7dt3eEg3d3MXMAeCIeGcMEFHA2c" alt="image"></p>
+<p>In the next blog we will se how to secure spring boot application. You
+can see the blog
+<a href="https://vikasontech.github.io/web/posts/secure-spring-boot-application-with-keycloak/">here</a>.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2020
+         Vikas Verma 
+      
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+
+  </body>
+
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>security on Vikas Blogs</title>
+    <link>https://vikasontech.github.io/tags/security/</link>
+    <description>Recent content in security on Vikas Blogs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 30 Nov 2018 11:55:00 +0700</lastBuildDate>
+    
+	<atom:link href="https://vikasontech.github.io/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Setup keycloak sercurity for spring boot application</title>
+      <link>https://vikasontech.github.io/posts/setup-keycloak-sercurity-for-spring-boot-application/</link>
+      <pubDate>Fri, 30 Nov 2018 11:55:00 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/posts/setup-keycloak-sercurity-for-spring-boot-application/</guid>
+      <description>Setup Realm and clients in keycloak
+This blog is the second part of the series of security spring boot application with keycloak. In first part we install setup in keycloak with docker you can see first part here.
+Version:
+ Keycloak: 4.5.0.Final Pre-requisites Keycloak should be installed in the  Create realm A realm secures and manages security metadata for a set of users, applications, and registered oauth clients. Users can be created within a specific realm within the Administration console.</description>
+    </item>
+    
+  </channel>
+</rss>
