@@ -4,7 +4,57 @@
   
   <url>
     <loc>https://vikasontech.github.io/categories/</loc>
-    <lastmod>2020-01-18T07:15:08+07:00</lastmod>
+    <lastmod>2020-05-01T14:45:44+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/tags/circuitbreaker/</loc>
+    <lastmod>2020-05-01T14:45:44+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/tags/example/</loc>
+    <lastmod>2020-05-01T14:45:44+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/posts/</loc>
+    <lastmod>2020-05-01T14:45:44+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/tags/resilience4j/</loc>
+    <lastmod>2020-05-01T14:45:44+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/tags/spring/</loc>
+    <lastmod>2020-05-01T14:45:44+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/posts/spring-boot-resilience4j-circuitbreaker-example/</loc>
+    <lastmod>2020-05-01T14:45:44+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/tags/spring-boot/</loc>
+    <lastmod>2020-05-01T14:45:44+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/tags/</loc>
+    <lastmod>2020-05-01T14:45:44+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/categories/technical/</loc>
+    <lastmod>2020-05-01T14:45:44+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/</loc>
+    <lastmod>2020-05-01T14:45:44+07:00</lastmod>
   </url>
   
   <url>
@@ -18,27 +68,7 @@
   </url>
   
   <url>
-    <loc>https://vikasontech.github.io/posts/</loc>
-    <lastmod>2020-01-18T07:15:08+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vikasontech.github.io/tags/spring/</loc>
-    <lastmod>2020-01-18T07:15:08+07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://vikasontech.github.io/posts/spring&#43;kotlin&#43;mongo&#43;testcontainer/</loc>
-    <lastmod>2020-01-18T07:15:08+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vikasontech.github.io/tags/</loc>
-    <lastmod>2020-01-18T07:15:08+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vikasontech.github.io/categories/technical/</loc>
     <lastmod>2020-01-18T07:15:08+07:00</lastmod>
   </url>
   
@@ -48,17 +78,7 @@
   </url>
   
   <url>
-    <loc>https://vikasontech.github.io/</loc>
-    <lastmod>2020-01-18T07:15:08+07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://vikasontech.github.io/posts/add-swagger-to-the-kotlin-spring-boot-project/</loc>
-    <lastmod>2020-01-16T23:05:40+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vikasontech.github.io/tags/spring-boot/</loc>
     <lastmod>2020-01-16T23:05:40+07:00</lastmod>
   </url>
   

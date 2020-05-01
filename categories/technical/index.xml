@@ -6,10 +6,21 @@
     <description>Recent content in technical on Vikas Blogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 18 Jan 2020 07:15:08 +0700</lastBuildDate>
+    <lastBuildDate>Fri, 01 May 2020 14:45:44 +0700</lastBuildDate>
     
 	<atom:link href="https://vikasontech.github.io/categories/technical/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Spring boot reactive and resillience4j circuitbreaker example</title>
+      <link>https://vikasontech.github.io/posts/spring-boot-resilience4j-circuitbreaker-example/</link>
+      <pubDate>Fri, 01 May 2020 14:45:44 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/posts/spring-boot-resilience4j-circuitbreaker-example/</guid>
+      <description>Introduction
+Resilience4j is a lightweight, easy-to-use fault tolerance library inspired by Netflix Hystrix, but designed for Java 8 and functional programming. Lightweight, because the library only uses Vavr, which does not have any other external library dependencies.
+Resilience4j provides higher-order functions (decorators) to enhance any functional interface, lambda expression or method reference with a Circuit Breaker, Rate Limiter, Retry or Bulkhead. You can stack more than one decorator on any functional interface, lambda expression or method reference.</description>
+    </item>
     
     <item>
       <title>Spring&#43;kotlin&#43;mongo&#43;testcontainer</title>
