@@ -10,12 +10,12 @@
     <meta name="keywords" content="Blogger, Developer, Scurm Master">
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Spring boot reactive and resillience4j circuitbreaker example"/>
+<meta name="twitter:title" content="Spring boot reactive and resilience4j circuit breaker example"/>
 <meta name="twitter:description" content="Introduction
 Resilience4j is a lightweight, easy-to-use fault tolerance library inspired by Netflix Hystrix, but designed for Java 8 and functional programming. Lightweight, because the library only uses Vavr, which does not have any other external library dependencies.
 Resilience4j provides higher-order functions (decorators) to enhance any functional interface, lambda expression or method reference with a Circuit Breaker, Rate Limiter, Retry or Bulkhead. You can stack more than one decorator on any functional interface, lambda expression or method reference."/>
 
-    <meta property="og:title" content="Spring boot reactive and resillience4j circuitbreaker example" />
+    <meta property="og:title" content="Spring boot reactive and resilience4j circuit breaker example" />
 <meta property="og:description" content="Introduction
 Resilience4j is a lightweight, easy-to-use fault tolerance library inspired by Netflix Hystrix, but designed for Java 8 and functional programming. Lightweight, because the library only uses Vavr, which does not have any other external library dependencies.
 Resilience4j provides higher-order functions (decorators) to enhance any functional interface, lambda expression or method reference with a Circuit Breaker, Rate Limiter, Retry or Bulkhead. You can stack more than one decorator on any functional interface, lambda expression or method reference." />
@@ -29,7 +29,7 @@ Resilience4j provides higher-order functions (decorators) to enhance any functio
       <base href="https://vikasontech.github.io/posts/spring-boot-resilience4j-circuitbreaker-example/">
     
     <title>
-  Spring boot reactive and resillience4j circuitbreaker example · Vikas Blogs
+  Spring boot reactive and resilience4j circuit breaker example · Vikas Blogs
 </title>
 
     
@@ -99,7 +99,7 @@ Resilience4j provides higher-order functions (decorators) to enhance any functio
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">Spring boot reactive and resillience4j circuitbreaker example</h1>
+          <h1 class="title">Spring boot reactive and resilience4j circuit breaker example</h1>
         </div>
         <div class="post-meta">
           <div class="date">
@@ -138,8 +138,8 @@ Resilience4j provides higher-order functions (decorators) to enhance any functio
 Netflix Hystrix, but designed for Java 8 and functional programming. Lightweight, because the library only uses <a href="https://www.vavr.io/vavr-docs/" target="_blank">Vavr</a>, which does not have any other external library dependencies.</p>
 <p>Resilience4j provides higher-order functions (decorators) to enhance any functional interface, lambda expression or method reference with a Circuit Breaker, Rate Limiter, Retry or Bulkhead. You can stack more than one decorator on any functional interface, lambda expression or method reference. The advantage is that you have the choice to select the decorators you need and nothing else.</p>
 <p>With Resilience4j you don’t have to go all-in, you can pick what you need.</p>
-<p><em><strong>Spring boot appliation cofiguration</strong></em></p>
-<p>Today we will create an demo application using <code>spring boot</code>, <code>webflux</code> and of course <code>resilience4j</code> . We will try to add resilience in our application. In case of any exception occured in the target service, we should get response from the fallback method.</p>
+<p><em><strong>Spring boot application configuration</strong></em></p>
+<p>Today we will create a demo application using <code>spring boot</code>, <code>webflux</code> and of course <code>resilience4j</code> . We will try to add resilience in our application. In case of any exception occured in the target service, we should get a response from the fallback method.</p>
 <p>To create demo application we can use <a href="https://start.spring.io/" target="_blank">spring boot application initializer</a></p>
 <p>We add following dependency in the demo application -</p>
 <ul>
@@ -157,22 +157,22 @@ Netflix Hystrix, but designed for Java 8 and functional programming. Lightweight
 <p>If the <code>id</code> value is <code>1</code> or more then return <code>Id found!</code> else if value is less than <code>1</code> then throw <code>IllegalArgumentException</code>.</p>
 <hr>
 <p><strong>Controller</strong></p>
-<p>Create a controller class called  <code>SomeController</code> that have an API endpoint <code>/process?id=</code>. It accept the <code>id</code> value in request param.</p>
+<p>Create a controller class called  <code>SomeController</code> that has an API endpoint <code>/process?id=</code>. It accepts the <code>id</code> value in the request param.</p>
 <script type="application/javascript" src="https://gist.github.com/vikasontech/2ede68be98e439714381437b77f3f218.js"></script>
 
 <hr>
 <p><em><strong>Run application</strong></em></p>
 <p>To run the application go to the terminal and run the blow command</p>
 <p><code>http :8080/process?id=1</code></p>
-<p>I use <em><a href="https://httpie.org/" target="_blank">httpie</a></em> to call the rest api, you can use of your choice.</p>
+<p>I use <em><a href="https://httpie.org/" target="_blank">httpie</a></em> to call the rest api, you can use your choice.</p>
 <p>The output should be as below -</p>
 <p><img src="https://l6zszq.ch.files.1drv.com/y4mhy9w44EuYskOQrf6u69movghjscNAyF2-xBxdRWcrzze58XDjChaRrZIw4FDqNt_1cU0w14HkbrmzPLFzr7Nd9bs1UyX9C-dVJn5kK2E4qw0BPpWgt2GqYvGJH7xAM1s2_CCHwF09l5aGyIAbOQzCfYXThrrt9sZUJwxlczRkEvdko3_lxZSO1_ULsGvMTQ2wcRcJf7s-PxwSOP4lzspmA?width=1956&amp;height=732&amp;cropmode=none" alt="run application"></p>
 <p>If you pass <code>id</code> value below <code>1</code> then the api should give error as below -</p>
 <p><code>http :8080/process?id=1</code></p>
 <p>The output should be as below -</p>
 <p><img src="https://lqzszq.ch.files.1drv.com/y4mzxi2sJEVvLfDPQRkpFNvBSFktR1BONuaBX_RyJYT3GnFdQo5l3OzZAsge3MdFU3pJEcwRR4lJnnQSxc-MGBRPw3z4ivmOeGio07-N7gLejlfsGEt4y-pgivE1SlTYXD7QtYYTQy408KqN6Ie9xQjX3OW7AKBi_p_yuqjHBjLkskhccpS9566b5dSiS0uqjaTxNd6rkGE3WXaKyq7fxnlcQ?width=1956&amp;height=732&amp;cropmode=none" alt="run application"></p>
-<p>Now our application is ready, next we need to add resilience4j in our application.</p>
-<p>In case of any error occured in third party api, call then we need to return result from the fallback method.</p>
+<p>Now our application is ready, next we need to add Resilience4j in our application.</p>
+<p>In case of any error occured in a third party Api call then we need to return the result from the fallback method.</p>
 <hr>
 <p><em><strong>Add dependency for resilience4j</strong></em></p>
 <p>Add dependency for resilience4j. We need to add <code>spring-cloud-starter-circuitbreaker-reactor-resilience4j</code> for reactive resilience.</p>
