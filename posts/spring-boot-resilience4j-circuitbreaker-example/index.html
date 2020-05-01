@@ -166,11 +166,11 @@ Netflix Hystrix, but designed for Java 8 and functional programming. Lightweight
 <p><code>http :8080/process?id=1</code></p>
 <p>I use <em><a href="https://httpie.org/" target="_blank">httpie</a></em> to call the rest api, you can use your choice.</p>
 <p>The output should be as below -</p>
-<p><img src="https://l6zszq.ch.files.1drv.com/y4mhy9w44EuYskOQrf6u69movghjscNAyF2-xBxdRWcrzze58XDjChaRrZIw4FDqNt_1cU0w14HkbrmzPLFzr7Nd9bs1UyX9C-dVJn5kK2E4qw0BPpWgt2GqYvGJH7xAM1s2_CCHwF09l5aGyIAbOQzCfYXThrrt9sZUJwxlczRkEvdko3_lxZSO1_ULsGvMTQ2wcRcJf7s-PxwSOP4lzspmA?width=1956&amp;height=732&amp;cropmode=none" alt="run application"></p>
+<p><img src="https://nqw3wq.ch.files.1drv.com/y4mChythQIVpDuv2TN9amUOCdcDCEqH9sJiSktCkxKeAx6AmnEPUXdsojUK73fZC0ckHlIoqxvRLYstK9q2HRnb6GXSdPt2aL6-4oR_HVdcRkMU4UhCj-htVgh59WaP8Y7zKwsjKn4BZdKUigPK8g5tqgakk4D-yiz0PrVL3f7BFmQW0RcaKJoFknyiHcq7TTz0MKlsHk_LJErW_nCx7SOK4g?width=1956&amp;height=732&amp;cropmode=none" alt="run application"></p>
 <p>If you pass <code>id</code> value below <code>1</code> then the api should give error as below -</p>
-<p><code>http :8080/process?id=1</code></p>
+<p><code>http :8080/process?id=0</code></p>
 <p>The output should be as below -</p>
-<p><img src="https://lqzszq.ch.files.1drv.com/y4mzxi2sJEVvLfDPQRkpFNvBSFktR1BONuaBX_RyJYT3GnFdQo5l3OzZAsge3MdFU3pJEcwRR4lJnnQSxc-MGBRPw3z4ivmOeGio07-N7gLejlfsGEt4y-pgivE1SlTYXD7QtYYTQy408KqN6Ie9xQjX3OW7AKBi_p_yuqjHBjLkskhccpS9566b5dSiS0uqjaTxNd6rkGE3WXaKyq7fxnlcQ?width=1956&amp;height=732&amp;cropmode=none" alt="run application"></p>
+<p><img src="https://lqzszq.ch.files.1drv.com/y4pSwbjlkvWh6i47v3c07yhQfm_JeijVbc3DlzDV9BvLWx2mZpMxCNwixSyLZ24Gi8afQTPj8CT3v8stsPbB3WNzfaDkQBv3xfPvo-tj5Ypym2ziirEwACk9ah01f9R3r4hu9yFZwEtDwAtP-3Fx6lpTOaszEIX__ITtaUuFyGWzJCtlv6GkZ3Z6Cog2zRhJ6CATELbLnBsTAr3aBsgXRSH6x0LfDc6d0SdTerN49DDWTI/resilience2.webp?psid=1" alt="run application"></p>
 <p>Now our application is ready, next we need to add Resilience4j in our application.</p>
 <p>In case of any error occured in a third party Api call then we need to return the result from the fallback method.</p>
 <hr>
@@ -189,8 +189,10 @@ Netflix Hystrix, but designed for Java 8 and functional programming. Lightweight
 <hr>
 <p><em><strong>Run application</strong></em></p>
 <p>Success case</p>
+<p><code>http :8080/process?id=1</code></p>
 <p><img src="https://nqw3wq.ch.files.1drv.com/y4mChythQIVpDuv2TN9amUOCdcDCEqH9sJiSktCkxKeAx6AmnEPUXdsojUK73fZC0ckHlIoqxvRLYstK9q2HRnb6GXSdPt2aL6-4oR_HVdcRkMU4UhCj-htVgh59WaP8Y7zKwsjKn4BZdKUigPK8g5tqgakk4D-yiz0PrVL3f7BFmQW0RcaKJoFknyiHcq7TTz0MKlsHk_LJErW_nCx7SOK4g?width=1956&amp;height=732&amp;cropmode=none" alt="run application"></p>
 <p>Application fail</p>
+<p><code>http :8080/process?id=-1</code></p>
 <p><img src="https://nkw3wq.ch.files.1drv.com/y4mDd9flhBDUxfy4JrdTAkuuAMmPDvy7cnC0XkvQa9nRX1TSyz83av8mgulGrkY9c2btN_K3rQHh1MySgPToJeUhJz4zY8giEczR9_HBxHtXimHpO86BhyD4pMVfUPev7zmvc1NVfJZKqBDDdcnTxnJpqeyLyXD0RWYWI7lxwbZn4-QcRXKJQu4FslzkuMgqt4QoZhcsUQfnUxo_v22x0Zeqg?width=1956&amp;height=732&amp;cropmode=none" alt="run application"></p>
 <hr>
 <p><em><strong>Source code</strong></em></p>
