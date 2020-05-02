@@ -1,0 +1,237 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Vikas Blogs - Spring&#43;kotlin&#43;mongo&#43;testcontainer </title>
+
+    
+    
+    <meta content="testcontainer, spring, kotlin, mongo, Technical" name="keywords">
+    
+    <meta content="Vikas Blogs - Example of using test container with kotlin, testcontainer and mongodb" name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" async
+        src="/mathjax-3.0.0/tex-mml-chtml.js">
+    </script>
+    
+
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/self/css/default.css">
+    <script src="/layui/layui.js"></script>
+
+
+    <link rel="stylesheet" async href="/self/css/markdown.min.css">
+    <link rel="stylesheet" async href="/self/css/gallery.css">
+    <link rel="stylesheet" async href="/font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="/self/js/lazysizes.min.js" async></script></head>
+
+<body>
+    
+    <header class="layui-header layui-bg-cyan">
+
+    
+        <a href=""><img src="/self/img/avater.jpg" class="layui-nav-img" style="margin-left:10px;margin-top:-10px"></a>
+    
+    
+    <a class="nav-self-logo" href="/">
+        Vikas Blogs
+    </a>
+
+    <ul class="layui-nav layui-layout-right layui-bg-cyan" lay-filter="">
+        
+        
+        <li class="layui-nav-item" id="nav_big"><a href="/post/">Posts</a></li>
+        
+
+        
+
+        
+        <li class="layui-nav-item" id="nav_small">
+            <a href="javascript:;">
+                <i class="layui-icon layui-icon-app" style="font-size: 24px;"></i>
+            </a>
+
+            <dl class="layui-nav-child">
+                
+                <dd><a href="/post/">Posts</a></dd>
+                
+
+                
+            </dl>
+        </li>
+    </ul>
+</header>
+
+<script>
+layui.use('element', function(){
+  var element = layui.element;
+});
+</script>
+        <div id="content" style="min-height:80%">
+<div class="layui-container" style="margin-bottom: 10px">
+    
+
+    <div class="layui-row layui-col-space10">
+        <div class="layui-col-md8 layui-col-sm12 layui-col-xs12">
+            <div class="layui-card single-card">
+                <br />
+                <blockquote class="layui-elem-quote markdown-body single-title" >
+                    <h1>Spring&#43;kotlin&#43;mongo&#43;testcontainer</h1>
+                    <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 24px; vertical-align: -2px;"></i>
+    <span>2020-01-18</span>
+
+    
+    <i class="layui-icon layui-icon-tabs" style="font-size: 22px; vertical-align: 0px;"></i>
+    
+        <a href="/tags/testcontainer/">
+            <span class="layui-badge" style="vertical-align: 2px;">testcontainer</span>
+        </a>
+    
+        <a href="/tags/spring/">
+            <span class="layui-badge" style="vertical-align: 2px;">spring</span>
+        </a>
+    
+        <a href="/tags/kotlin/">
+            <span class="layui-badge" style="vertical-align: 2px;">kotlin</span>
+        </a>
+    
+        <a href="/tags/mongo/">
+            <span class="layui-badge" style="vertical-align: 2px;">mongo</span>
+        </a>
+    
+</h3>
+                </blockquote>
+                <div class="layui-card-body markdown-body single-content">
+                    <p><strong>Introduction</strong></p>
+<p>In this project we shall see how to use <a href="https://www.testcontainers.org/" target="_blank">testcontainer</a> to test the repository created in <a href="https://www.mongodb.com/" target="_blank">mongodb</a> As per their document Testcontainers is a Java library that supports JUnit tests, providing lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can run in a Docker container.</p>
+<p><strong>Prerequisit</strong></p>
+<ul>
+<li>Docker</li>
+</ul>
+<p><strong>Create sample project</strong></p>
+<p>Go to the <a href="http://start.spring.io" target="_blank">spring initializer</a> and create project with language as kotlin and dependencies required are <code>webflux</code> &amp; <code>reactive mongo db</code></p>
+<p>Here we shall create a loan details application, where we will save loan details.</p>
+<p><strong>Dependency for testcontainer</strong></p>
+<p>We need following depencies to add testconainer in the appliation
+<script type="application/javascript" src="https://gist.github.com/vikasontech/9870bb368b01f5a7ae07148efd2276f8.js"></script>
+</p>
+<p><strong>Container Configuration</strong></p>
+<p>Create docker compose file for the test container we shall use the same docker-compose.yml file as we are using for the application, except we shall change the port for the test docker container.
+it should look like this-</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/3d2b48ee2c50a390c36a9d57cedb5386.js"></script>
+
+<p>Note: here we are mapping docker container port at <code>1234</code> some random port it can be any number that are available.</p>
+<p>The file path should be <code>src/test/resources/docker-compose-test.yml</code></p>
+<p>Create a container class that extends docker compose container class be used as mongo container</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/f4bc3ac99aa38cdfe130ff572c55f478.js"></script>
+
+<p>The code is very simple and self explanatory, at <code>line:2</code> we create a <code>DockerComposeContainer</code> of type <code>SELF</code> <code>MongoContainer</code> and provide path of test docker compose file.</p>
+<p>We created it as a singleton repository and use <code>@PostConstruct</code> to start the container once the dependency injection is done.</p>
+<p>That&rsquo;s all we need to start with testconatainer.</p>
+<p><strong>Create basic structure of the application</strong></p>
+<p>Create a <code>document</code> class to save in mongo</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/538fe51780ebe36103dd5f395b5b561d.js"></script>
+
+<p>Create an <code>repository</code> to access data from the DB.</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/434440bacb6ae4c8b65d81024274e08f.js"></script>
+
+<p>Create an <code>service</code> class to access the loan details.</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/e0970e10dfc16f24195a8f932537a0dc.js"></script>
+
+<p><strong>Create first test case</strong></p>
+<p>Let&rsquo;s create our first test case as below</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/a9bd4b673a792f94ca426d1ad988d981.js"></script>
+
+<p>The test case is preety normal and same we write. There is nothing special we need to do for testcontainers here.</p>
+<p><strong>Run Test</strong></p>
+<p>Before run local test do ensure that the docker is running on your machine.</p>
+<p><strong>Repository</strong></p>
+<p>Create repository and link <a href="https://github.com/vikasontech/KotlinWebFluxMongoTestContainer.git/" target="_blank">here</a>.</p>
+</div>
+            </div>
+        </div>
+
+        
+        <div class="layui-col-md4 layui-col-sm12 layui-col-xs12">
+            <div class="layui-card single-card">
+                <h1 class="single-title">Relevant Topics</h1>
+                
+                	
+                    <div style="margin-left: 10px;">
+                        <blockquote class="layui-elem-quote" style="background-color:#FFFFFF;margin-top: 10px;">
+                            <a href="/post/add-swagger-to-the-kotlin-spring-boot-project/">
+                                <h2 class="">Add swagger to the kotlin spring </h2>
+                            </a>
+                            <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 24px; vertical-align: -2px;"></i>
+    <span>2020-01-16</span>
+
+    
+    <i class="layui-icon layui-icon-tabs" style="font-size: 22px; vertical-align: 0px;"></i>
+    
+        <a href="/tags/swagger/">
+            <span class="layui-badge" style="vertical-align: 2px;">swagger</span>
+        </a>
+    
+        <a href="/tags/kotlin/">
+            <span class="layui-badge" style="vertical-align: 2px;">kotlin</span>
+        </a>
+    
+        <a href="/tags/spring-boot/">
+            <span class="layui-badge" style="vertical-align: 2px;">spring-boot</span>
+        </a>
+    
+</h3>
+                        </blockquote>
+                    </div>
+                	
+                
+                <br />
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+        </div><footer>
+    
+
+    <div class="layui-container">
+        <div class="layui-row">
+            <div class="layui-col-md4 layui-col-sm6 layui-col-xs6">
+              
+            </div>
+        </div>
+        <div class="layui-row">
+            
+            <div class="layui-col-md4 layui-col-sm6 layui-col-xs12">
+                <a href="/"><p class="footer-url">home</p></a>
+            </div>
+            
+            <div class="layui-col-md4 layui-col-sm6 layui-col-xs12">
+                <a href="/about/"><p class="footer-url">About</p></a>
+            </div>
+            
+        </div>
+    </div>
+    
+    
+    <div class="layui-container">
+        <p class="copyright">Copyright © 2019–2020, Vikas Verma</p>
+    </div>
+</footer>
+
+</body>
+</html>

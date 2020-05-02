@@ -18,7 +18,7 @@
   </url>
   
   <url>
-    <loc>https://vikasontech.github.io/posts/</loc>
+    <loc>https://vikasontech.github.io/post/</loc>
     <lastmod>2020-05-01T14:45:44+07:00</lastmod>
   </url>
   
@@ -33,7 +33,7 @@
   </url>
   
   <url>
-    <loc>https://vikasontech.github.io/posts/spring-boot-resilience4j-circuitbreaker-example/</loc>
+    <loc>https://vikasontech.github.io/post/spring-boot-resilience4j-circuitbreaker-example/</loc>
     <lastmod>2020-05-01T14:45:44+07:00</lastmod>
   </url>
   
@@ -68,7 +68,7 @@
   </url>
   
   <url>
-    <loc>https://vikasontech.github.io/posts/spring&#43;kotlin&#43;mongo&#43;testcontainer/</loc>
+    <loc>https://vikasontech.github.io/post/spring&#43;kotlin&#43;mongo&#43;testcontainer/</loc>
     <lastmod>2020-01-18T07:15:08+07:00</lastmod>
   </url>
   
@@ -78,7 +78,7 @@
   </url>
   
   <url>
-    <loc>https://vikasontech.github.io/posts/add-swagger-to-the-kotlin-spring-boot-project/</loc>
+    <loc>https://vikasontech.github.io/post/add-swagger-to-the-kotlin-spring-boot-project/</loc>
     <lastmod>2020-01-16T23:05:40+07:00</lastmod>
   </url>
   
@@ -113,7 +113,7 @@
   </url>
   
   <url>
-    <loc>https://vikasontech.github.io/posts/scala-mongo-example-with-akka-http-and-akka-stream/</loc>
+    <loc>https://vikasontech.github.io/post/scala-mongo-example-with-akka-http-and-akka-stream/</loc>
     <lastmod>2019-12-23T16:22:54+07:00</lastmod>
   </url>
   
@@ -128,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://vikasontech.github.io/posts/scala-rest-api-with-akka-http/</loc>
+    <loc>https://vikasontech.github.io/post/scala-rest-api-with-akka-http/</loc>
     <lastmod>2019-12-10T08:56:15+07:00</lastmod>
   </url>
   
@@ -148,7 +148,7 @@
   </url>
   
   <url>
-    <loc>https://vikasontech.github.io/posts/secure-spring-boot-application-with-keycloak/</loc>
+    <loc>https://vikasontech.github.io/post/secure-spring-boot-application-with-keycloak/</loc>
     <lastmod>2018-11-30T12:32:26+07:00</lastmod>
   </url>
   
@@ -158,7 +158,7 @@
   </url>
   
   <url>
-    <loc>https://vikasontech.github.io/posts/setup-keycloak-sercurity-for-spring-boot-application/</loc>
+    <loc>https://vikasontech.github.io/post/setup-keycloak-sercurity-for-spring-boot-application/</loc>
     <lastmod>2018-11-30T11:55:00+07:00</lastmod>
   </url>
   
@@ -168,8 +168,12 @@
   </url>
   
   <url>
-    <loc>https://vikasontech.github.io/posts/setup-keycloak-with-docker/</loc>
+    <loc>https://vikasontech.github.io/post/setup-keycloak-with-docker/</loc>
     <lastmod>2018-11-18T11:49:10+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/series/</loc>
   </url>
   
 </urlset>

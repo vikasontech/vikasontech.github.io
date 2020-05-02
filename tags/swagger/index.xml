@@ -13,10 +13,10 @@
     
     <item>
       <title>Add swagger to the kotlin spring </title>
-      <link>https://vikasontech.github.io/posts/add-swagger-to-the-kotlin-spring-boot-project/</link>
+      <link>https://vikasontech.github.io/post/add-swagger-to-the-kotlin-spring-boot-project/</link>
       <pubDate>Thu, 16 Jan 2020 23:05:40 +0700</pubDate>
       
-      <guid>https://vikasontech.github.io/posts/add-swagger-to-the-kotlin-spring-boot-project/</guid>
+      <guid>https://vikasontech.github.io/post/add-swagger-to-the-kotlin-spring-boot-project/</guid>
       <description>Introduction
 In this short article we shall see how to configure swagger with spring webflux project. We create a project on spring initializer and then shall configure swagger.
 Dependencies

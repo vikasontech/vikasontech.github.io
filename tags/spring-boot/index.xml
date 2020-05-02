@@ -13,10 +13,10 @@
     
     <item>
       <title>Spring boot reactive and resilience4j circuit breaker example</title>
-      <link>https://vikasontech.github.io/posts/spring-boot-resilience4j-circuitbreaker-example/</link>
+      <link>https://vikasontech.github.io/post/spring-boot-resilience4j-circuitbreaker-example/</link>
       <pubDate>Fri, 01 May 2020 14:45:44 +0700</pubDate>
       
-      <guid>https://vikasontech.github.io/posts/spring-boot-resilience4j-circuitbreaker-example/</guid>
+      <guid>https://vikasontech.github.io/post/spring-boot-resilience4j-circuitbreaker-example/</guid>
       <description>Introduction
 Resilience4j is a lightweight, easy-to-use fault tolerance library inspired by Netflix Hystrix, but designed for Java 8 and functional programming. Lightweight, because the library only uses Vavr, which does not have any other external library dependencies.
 Resilience4j provides higher-order functions (decorators) to enhance any functional interface, lambda expression or method reference with a Circuit Breaker, Rate Limiter, Retry or Bulkhead. You can stack more than one decorator on any functional interface, lambda expression or method reference.</description>
@@ -24,10 +24,10 @@ Resilience4j provides higher-order functions (decorators) to enhance any functio
     
     <item>
       <title>Add swagger to the kotlin spring </title>
-      <link>https://vikasontech.github.io/posts/add-swagger-to-the-kotlin-spring-boot-project/</link>
+      <link>https://vikasontech.github.io/post/add-swagger-to-the-kotlin-spring-boot-project/</link>
       <pubDate>Thu, 16 Jan 2020 23:05:40 +0700</pubDate>
       
-      <guid>https://vikasontech.github.io/posts/add-swagger-to-the-kotlin-spring-boot-project/</guid>
+      <guid>https://vikasontech.github.io/post/add-swagger-to-the-kotlin-spring-boot-project/</guid>
       <description>Introduction
 In this short article we shall see how to configure swagger with spring webflux project. We create a project on spring initializer and then shall configure swagger.
 Dependencies
@@ -38,10 +38,10 @@ In order to work swagger with kotlin you need to add the following repositories 
     
     <item>
       <title>Secure spring boot application with keycloak</title>
-      <link>https://vikasontech.github.io/posts/secure-spring-boot-application-with-keycloak/</link>
+      <link>https://vikasontech.github.io/post/secure-spring-boot-application-with-keycloak/</link>
       <pubDate>Fri, 30 Nov 2018 12:32:26 +0700</pubDate>
       
-      <guid>https://vikasontech.github.io/posts/secure-spring-boot-application-with-keycloak/</guid>
+      <guid>https://vikasontech.github.io/post/secure-spring-boot-application-with-keycloak/</guid>
       <description>This is the last blog of the series of securing spring boot application with keycloak. It is recommended to go through this first blog and second blog here.
 In last blog post of this series we saw how we can configure keycloak for our application. Now in this tutorial we will see how we can use keycloak with spring boot.
 Prerequisite
@@ -51,10 +51,10 @@ Prerequisite
     
     <item>
       <title>Setup keycloak sercurity for spring boot application</title>
-      <link>https://vikasontech.github.io/posts/setup-keycloak-sercurity-for-spring-boot-application/</link>
+      <link>https://vikasontech.github.io/post/setup-keycloak-sercurity-for-spring-boot-application/</link>
       <pubDate>Fri, 30 Nov 2018 11:55:00 +0700</pubDate>
       
-      <guid>https://vikasontech.github.io/posts/setup-keycloak-sercurity-for-spring-boot-application/</guid>
+      <guid>https://vikasontech.github.io/post/setup-keycloak-sercurity-for-spring-boot-application/</guid>
       <description>Setup Realm and clients in keycloak
 This blog is the second part of the series of security spring boot application with keycloak. In first part we install setup in keycloak with docker you can see first part here
 Version:

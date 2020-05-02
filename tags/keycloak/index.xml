@@ -13,10 +13,10 @@
     
     <item>
       <title>Secure spring boot application with keycloak</title>
-      <link>https://vikasontech.github.io/posts/secure-spring-boot-application-with-keycloak/</link>
+      <link>https://vikasontech.github.io/post/secure-spring-boot-application-with-keycloak/</link>
       <pubDate>Fri, 30 Nov 2018 12:32:26 +0700</pubDate>
       
-      <guid>https://vikasontech.github.io/posts/secure-spring-boot-application-with-keycloak/</guid>
+      <guid>https://vikasontech.github.io/post/secure-spring-boot-application-with-keycloak/</guid>
       <description>This is the last blog of the series of securing spring boot application with keycloak. It is recommended to go through this first blog and second blog here.
 In last blog post of this series we saw how we can configure keycloak for our application. Now in this tutorial we will see how we can use keycloak with spring boot.
 Prerequisite
@@ -26,10 +26,10 @@ Prerequisite
     
     <item>
       <title>Setup keycloak sercurity for spring boot application</title>
-      <link>https://vikasontech.github.io/posts/setup-keycloak-sercurity-for-spring-boot-application/</link>
+      <link>https://vikasontech.github.io/post/setup-keycloak-sercurity-for-spring-boot-application/</link>
       <pubDate>Fri, 30 Nov 2018 11:55:00 +0700</pubDate>
       
-      <guid>https://vikasontech.github.io/posts/setup-keycloak-sercurity-for-spring-boot-application/</guid>
+      <guid>https://vikasontech.github.io/post/setup-keycloak-sercurity-for-spring-boot-application/</guid>
       <description>Setup Realm and clients in keycloak
 This blog is the second part of the series of security spring boot application with keycloak. In first part we install setup in keycloak with docker you can see first part here
 Version:
@@ -38,10 +38,10 @@ Version:
     
     <item>
       <title>Setup Keycloak with Docker</title>
-      <link>https://vikasontech.github.io/posts/setup-keycloak-with-docker/</link>
+      <link>https://vikasontech.github.io/post/setup-keycloak-with-docker/</link>
       <pubDate>Sun, 18 Nov 2018 11:49:10 +0700</pubDate>
       
-      <guid>https://vikasontech.github.io/posts/setup-keycloak-with-docker/</guid>
+      <guid>https://vikasontech.github.io/post/setup-keycloak-with-docker/</guid>
       <description>Introduction of Keycloak
 Open Source Identity and Access Management For Modern Applications and Services. It add authentication to applications and secure services with minimum fuss. No need to deal with storing users or authenticating users. It&amp;rsquo;s all available out of the box.
 You&amp;rsquo;ll even get advanced features such as User Federation, Identity Brokering and Social Login.

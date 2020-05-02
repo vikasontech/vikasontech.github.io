@@ -13,10 +13,10 @@
     
     <item>
       <title>Scala Rest API with akka-http</title>
-      <link>https://vikasontech.github.io/posts/scala-rest-api-with-akka-http/</link>
+      <link>https://vikasontech.github.io/post/scala-rest-api-with-akka-http/</link>
       <pubDate>Tue, 10 Dec 2019 08:56:15 +0700</pubDate>
       
-      <guid>https://vikasontech.github.io/posts/scala-rest-api-with-akka-http/</guid>
+      <guid>https://vikasontech.github.io/post/scala-rest-api-with-akka-http/</guid>
       <description>Introduction
 In this tutorial we shall explore how we can use akka-http to create service with scala. Here we create CRUD service with akka actor and try to see how it work.
 Versions

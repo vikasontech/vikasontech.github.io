@@ -13,10 +13,10 @@
     
     <item>
       <title>Setup Keycloak with Docker</title>
-      <link>https://vikasontech.github.io/posts/setup-keycloak-with-docker/</link>
+      <link>https://vikasontech.github.io/post/setup-keycloak-with-docker/</link>
       <pubDate>Sun, 18 Nov 2018 11:49:10 +0700</pubDate>
       
-      <guid>https://vikasontech.github.io/posts/setup-keycloak-with-docker/</guid>
+      <guid>https://vikasontech.github.io/post/setup-keycloak-with-docker/</guid>
       <description>Introduction of Keycloak
 Open Source Identity and Access Management For Modern Applications and Services. It add authentication to applications and secure services with minimum fuss. No need to deal with storing users or authenticating users. It&amp;rsquo;s all available out of the box.
 You&amp;rsquo;ll even get advanced features such as User Federation, Identity Brokering and Social Login.

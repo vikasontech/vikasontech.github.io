@@ -13,10 +13,10 @@
     
     <item>
       <title>Setup keycloak sercurity for spring boot application</title>
-      <link>https://vikasontech.github.io/posts/setup-keycloak-sercurity-for-spring-boot-application/</link>
+      <link>https://vikasontech.github.io/post/setup-keycloak-sercurity-for-spring-boot-application/</link>
       <pubDate>Fri, 30 Nov 2018 11:55:00 +0700</pubDate>
       
-      <guid>https://vikasontech.github.io/posts/setup-keycloak-sercurity-for-spring-boot-application/</guid>
+      <guid>https://vikasontech.github.io/post/setup-keycloak-sercurity-for-spring-boot-application/</guid>
       <description>Setup Realm and clients in keycloak
 This blog is the second part of the series of security spring boot application with keycloak. In first part we install setup in keycloak with docker you can see first part here
 Version:
