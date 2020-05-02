@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>keycloak on Vikas Blogs</title>
+    <link>https://vikasontech.github.io/series/keycloak/</link>
+    <description>Recent content in keycloak on Vikas Blogs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 30 Nov 2018 12:32:26 +0700</lastBuildDate>
+    
+	<atom:link href="https://vikasontech.github.io/series/keycloak/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Secure spring boot application with keycloak</title>
+      <link>https://vikasontech.github.io/post/secure-spring-boot-application-with-keycloak/</link>
+      <pubDate>Fri, 30 Nov 2018 12:32:26 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/post/secure-spring-boot-application-with-keycloak/</guid>
+      <description>This is the last blog of the series of securing spring boot application with keycloak. It is recommended to go through this first blog and second blog here.
+In last blog post of this series we saw how we can configure keycloak for our application. Now in this tutorial we will see how we can use keycloak with spring boot.
+Prerequisite
+ Docker Keycloak  Version
+ Spring Boo: 1.5.17.RELEASE Java: 1.</description>
+    </item>
+    
+    <item>
+      <title>Setup keycloak sercurity for spring boot application</title>
+      <link>https://vikasontech.github.io/post/setup-keycloak-sercurity-for-spring-boot-application/</link>
+      <pubDate>Fri, 30 Nov 2018 11:55:00 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/post/setup-keycloak-sercurity-for-spring-boot-application/</guid>
+      <description>Setup Realm and clients in keycloak
+This blog is the second part of the series of security spring boot application with keycloak. In first part we install setup in keycloak with docker you can see first part here
+Version:
+ Keycloak: 4.5.0.Final Pre-requisites Keycloak should be installed in the  Create realm A realm secures and manages security metadata for a set of users, applications, and registered oauth clients. Users can be created within a specific realm within the Administration console.</description>
+    </item>
+    
+    <item>
+      <title>Setup Keycloak with Docker</title>
+      <link>https://vikasontech.github.io/post/setup-keycloak-with-docker/</link>
+      <pubDate>Sun, 18 Nov 2018 11:49:10 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/post/setup-keycloak-with-docker/</guid>
+      <description>Introduction of Keycloak
+Open Source Identity and Access Management For Modern Applications and Services. It add authentication to applications and secure services with minimum fuss. No need to deal with storing users or authenticating users. It&amp;rsquo;s all available out of the box.
+You&amp;rsquo;ll even get advanced features such as User Federation, Identity Brokering and Social Login.
+Prerequisites:
+ Docker:  Since we are using Docker to install Keycloak; it should be installed on your machine.</description>
+    </item>
+    
+  </channel>
+</rss>

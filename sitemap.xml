@@ -143,12 +143,22 @@
   </url>
   
   <url>
+    <loc>https://vikasontech.github.io/series/keycloak/</loc>
+    <lastmod>2018-11-30T12:32:26+07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://vikasontech.github.io/tags/secrity/</loc>
     <lastmod>2018-11-30T12:32:26+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://vikasontech.github.io/post/secure-spring-boot-application-with-keycloak/</loc>
+    <lastmod>2018-11-30T12:32:26+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/series/</loc>
     <lastmod>2018-11-30T12:32:26+07:00</lastmod>
   </url>
   
@@ -170,10 +180,6 @@
   <url>
     <loc>https://vikasontech.github.io/post/setup-keycloak-with-docker/</loc>
     <lastmod>2018-11-18T11:49:10+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vikasontech.github.io/series/</loc>
   </url>
   
 </urlset>

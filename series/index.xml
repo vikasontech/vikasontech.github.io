@@ -6,9 +6,19 @@
     <description>Recent content in Series on Vikas Blogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Fri, 30 Nov 2018 12:32:26 +0700</lastBuildDate>
     
 	<atom:link href="https://vikasontech.github.io/series/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>keycloak</title>
+      <link>https://vikasontech.github.io/series/keycloak/</link>
+      <pubDate>Fri, 30 Nov 2018 12:32:26 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/series/keycloak/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
