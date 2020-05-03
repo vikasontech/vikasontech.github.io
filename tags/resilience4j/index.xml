@@ -6,10 +6,24 @@
     <description>Recent content in resilience4j on Vikas Blogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 01 May 2020 14:45:44 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 03 May 2020 23:11:17 +0700</lastBuildDate>
     
 	<atom:link href="https://vikasontech.github.io/tags/resilience4j/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Spring Boot Resilience4j Circuitbreaker Annotation Example</title>
+      <link>https://vikasontech.github.io/post/spring-boot-resilience4j-circuitbreaker-annotation-example/</link>
+      <pubDate>Sun, 03 May 2020 23:11:17 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/post/spring-boot-resilience4j-circuitbreaker-annotation-example/</guid>
+      <description>Introduction
+This is continuation of my previous blog on Resilience4j. In this blog, we shall try to use the annotation and external configuration for the circuit breaker implementation.
+So let&amp;rsquo;s start by creating a basic application. That has one controller and one service class.
+We already saw how to make the reactive basic application in a previous blog. Now we will continue from that.
+Version Details
+ spring-boot:2.2.6.RELEASE spring-cloud:Hoxton.SR4 Resilience4j:1.1.0 Java:11 Kotlin:1.</description>
+    </item>
     
     <item>
       <title>Spring boot reactive and resilience4j circuit breaker example</title>

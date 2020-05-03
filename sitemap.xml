@@ -4,66 +4,71 @@
   
   <url>
     <loc>https://vikasontech.github.io/categories/</loc>
-    <lastmod>2020-05-01T14:45:44+07:00</lastmod>
+    <lastmod>2020-05-03T23:11:17+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://vikasontech.github.io/tags/circuitbreaker/</loc>
-    <lastmod>2020-05-01T14:45:44+07:00</lastmod>
+    <lastmod>2020-05-03T23:11:17+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://vikasontech.github.io/tags/example/</loc>
-    <lastmod>2020-05-01T14:45:44+07:00</lastmod>
+    <lastmod>2020-05-03T23:11:17+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://vikasontech.github.io/post/</loc>
-    <lastmod>2020-05-01T14:45:44+07:00</lastmod>
+    <lastmod>2020-05-03T23:11:17+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://vikasontech.github.io/tags/resilience4j/</loc>
-    <lastmod>2020-05-01T14:45:44+07:00</lastmod>
+    <lastmod>2020-05-03T23:11:17+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://vikasontech.github.io/series/resilience4j/</loc>
-    <lastmod>2020-05-01T14:45:44+07:00</lastmod>
+    <lastmod>2020-05-03T23:11:17+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://vikasontech.github.io/series/</loc>
-    <lastmod>2020-05-01T14:45:44+07:00</lastmod>
+    <lastmod>2020-05-03T23:11:17+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://vikasontech.github.io/tags/spring/</loc>
-    <lastmod>2020-05-01T14:45:44+07:00</lastmod>
+    <lastmod>2020-05-03T23:11:17+07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://vikasontech.github.io/post/spring-boot-resilience4j-circuitbreaker-example/</loc>
-    <lastmod>2020-05-01T14:45:44+07:00</lastmod>
+    <loc>https://vikasontech.github.io/post/spring-boot-resilience4j-circuitbreaker-annotation-example/</loc>
+    <lastmod>2020-05-03T23:11:17+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://vikasontech.github.io/tags/spring-boot/</loc>
-    <lastmod>2020-05-01T14:45:44+07:00</lastmod>
+    <lastmod>2020-05-03T23:11:17+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://vikasontech.github.io/tags/</loc>
-    <lastmod>2020-05-01T14:45:44+07:00</lastmod>
+    <lastmod>2020-05-03T23:11:17+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://vikasontech.github.io/categories/technical/</loc>
-    <lastmod>2020-05-01T14:45:44+07:00</lastmod>
+    <lastmod>2020-05-03T23:11:17+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://vikasontech.github.io/</loc>
+    <lastmod>2020-05-03T23:11:17+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/post/spring-boot-resilience4j-circuitbreaker-example/</loc>
     <lastmod>2020-05-01T14:45:44+07:00</lastmod>
   </url>
   

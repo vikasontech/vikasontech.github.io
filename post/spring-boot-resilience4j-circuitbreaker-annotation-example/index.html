@@ -1,0 +1,373 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Vikas Blogs - Spring Boot Resilience4j Circuitbreaker Annotation Example </title>
+
+    
+    
+    <meta content="spring-boot, resilience4j, circuitbreaker, example, Technical" name="keywords">
+    
+    <meta content="Vikas Blogs - Blog on how to use Resillien4j, with Kotlin, Spring boot and webflux with annotation" name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" async
+        src="/mathjax-3.0.0/tex-mml-chtml.js">
+    </script>
+    
+
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/self/css/default.css">
+    <script src="/layui/layui.js"></script>
+
+
+    <link rel="stylesheet" async href="/self/css/markdown.min.css">
+    <link rel="stylesheet" async href="/self/css/gallery.css">
+    <link rel="stylesheet" async href="/font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="/self/js/lazysizes.min.js" async></script></head>
+
+<body>
+    
+    <header class="layui-header layui-bg-cyan">
+
+    
+        <a href=""><img src="/self/img/avater.jpg" class="layui-nav-img" style="margin-left:10px;margin-top:-10px"></a>
+    
+    
+    <a class="nav-self-logo" href="/">
+        Vikas Blogs
+    </a>
+
+    <ul class="layui-nav layui-layout-right layui-bg-cyan" lay-filter="">
+        
+        
+        <li class="layui-nav-item" id="nav_big"><a href="/post/">Posts</a></li>
+        
+
+        
+
+        
+        <li class="layui-nav-item" id="nav_small">
+            <a href="javascript:;">
+                <i class="layui-icon layui-icon-app" style="font-size: 24px;"></i>
+            </a>
+
+            <dl class="layui-nav-child">
+                
+                <dd><a href="/post/">Posts</a></dd>
+                
+
+                
+            </dl>
+        </li>
+    </ul>
+</header>
+
+<script>
+layui.use('element', function(){
+  var element = layui.element;
+});
+</script>
+        <div id="content" style="min-height:80%">
+<div class="layui-container" style="margin-bottom: 10px">
+    
+
+    <div class="layui-row layui-col-space10">
+        <div class="layui-col-md8 layui-col-sm12 layui-col-xs12">
+            <div class="layui-card single-card">
+                <br />
+                <blockquote class="layui-elem-quote markdown-body single-title" >
+                    <h1>Spring Boot Resilience4j Circuitbreaker Annotation Example</h1>
+                    <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 24px; vertical-align: -2px;"></i>
+    <span>2020-05-03</span>
+
+    
+    <i class="layui-icon layui-icon-tabs" style="font-size: 22px; vertical-align: 0px;"></i>
+    
+        <a href="/tags/spring-boot/">
+            <span class="layui-badge" style="vertical-align: 2px;">spring-boot</span>
+        </a>
+    
+        <a href="/tags/resilience4j/">
+            <span class="layui-badge" style="vertical-align: 2px;">resilience4j</span>
+        </a>
+    
+        <a href="/tags/circuitbreaker/">
+            <span class="layui-badge" style="vertical-align: 2px;">circuitbreaker</span>
+        </a>
+    
+        <a href="/tags/example/">
+            <span class="layui-badge" style="vertical-align: 2px;">example</span>
+        </a>
+    
+</h3>
+                </blockquote>
+                <div class="layui-card-body markdown-body single-content">
+                    <p><em><strong>Introduction</strong></em></p>
+<p>This is continuation of my <strong><a href="https://vikasontech.github.io/post/spring-boot-resilience4j-circuitbreaker-example/">previous blog</a></strong> on Resilience4j. In this blog, we shall try to use the annotation and external configuration for the circuit breaker implementation.</p>
+<p>So let&rsquo;s start by creating a basic application. That has one controller and one service class.</p>
+<p>We already saw how to make the reactive basic application in a  previous blog. Now we will continue from that.</p>
+<p><em><strong>Version Details</strong></em></p>
+<ul>
+<li><strong>spring-boot:2.2.6.RELEASE</strong></li>
+<li><strong>spring-cloud:Hoxton.SR4</strong></li>
+<li><strong>Resilience4j:1.1.0</strong></li>
+<li><strong>Java:11</strong></li>
+<li><strong>Kotlin:1.3.71</strong></li>
+</ul>
+<p><em><strong>Adding dependencies</strong></em></p>
+<p>We need to add the following  dependencies -</p>
+<ul>
+<li>resilience4j-reactor</li>
+<li>resilience4j-circuitbreaker</li>
+<li>resilience4j-spring-boot2</li>
+<li>spring-boot-starter-actuator</li>
+<li>spring-boot-starter-aop</li>
+</ul>
+<p><em><strong>Add configuration for the circuit breaker</strong></em></p>
+<p>Open <code>application.yml</code> and add the following configuration for the the circuit breaker -</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#66d9ef">resilience4j.circuitbreaker</span>:
+  <span style="color:#66d9ef">instances</span>:
+    <span style="color:#66d9ef">processService</span>:
+      <span style="color:#66d9ef">slidingWindowSize</span>: <span style="color:#ae81ff">50</span>
+      <span style="color:#66d9ef">permittedNumberOfCallsInHalfOpenState</span>: <span style="color:#ae81ff">3</span>
+      <span style="color:#66d9ef">slidingWindowType</span>: TIME_BASED
+      <span style="color:#66d9ef">minimumNumberOfCalls</span>: <span style="color:#ae81ff">20</span>
+      <span style="color:#66d9ef">waitDurationInOpenState</span>: 50s
+      <span style="color:#66d9ef">failureRateThreshold</span>: <span style="color:#ae81ff">50</span></code></pre></div>
+<p>The detail of the configuration is as below -</p>
+<p><code>resilience4j.circuitbreaker</code></p>
+<p>it is the header of the configuration, the <code>circuitbreaker</code> specify that this configuration contains all the configuration for the <strong>circuit breaker</strong>.</p>
+<p><code>processService</code></p>
+<p>It is the name of this configuration.</p>
+<p><code>slidingWindowSize</code></p>
+<p>Configures the size of the sliding window which is used to record the outcome of calls when the CircuitBreaker is closed.</p>
+<p><code>permittedNumberOfCallsInHalfOpenState</code></p>
+<p>Configures the number of permitted calls when the CircuitBreaker is half open.</p>
+<p><code>slidingWindowType</code></p>
+<p>Configures the type of the sliding window which is used to record the outcome of calls when the CircuitBreaker is closed.</p>
+<p><code>minimumNumberOfCalls</code></p>
+<p>Configures the minimum number of calls which are required (per sliding window period) before the CircuitBreaker can calculate the error rate or slow call rate.</p>
+<p><code>waitDurationInOpenState</code></p>
+<p>The time that the CircuitBreaker should wait before transitioning from open to half-open.</p>
+<p><code>failureRateThreshold</code></p>
+<p>Configures the failure rate threshold in percentage. When the failure rate is equal or greater than the threshold the CircuitBreaker transitions to open and starts short-circuiting calls.</p>
+<hr>
+<p>Now modify the service method to add the circuit breaker. For that we need to add the <code>@CircuitBreaker</code> annotation at the service method and provide the <code>callback</code> method name like this</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@CircuitBreaker</span><span style="color:#f92672">(</span>name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;processService&#34;</span><span style="color:#f92672">,</span> fallbackMethod <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;fallbackProcess&#34;</span><span style="color:#f92672">)</span></code></pre></div>
+<p>The fallback method name is <code>fallbackProcess</code> it should be in the same class and it should have same signature but with and extra parameter for the <code>Throwable</code> class for the exception handling.</p>
+<p>So our service method and fallback method should look like this
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@CircuitBreaker</span><span style="color:#f92672">(</span>name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;processService&#34;</span><span style="color:#f92672">,</span> fallbackMethod <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;fallbackProcess&#34;</span><span style="color:#f92672">)</span>
+fun <span style="color:#a6e22e">process</span><span style="color:#f92672">(</span>id<span style="color:#f92672">:</span> Int<span style="color:#f92672">):</span> Mono<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>id <span style="color:#f92672">&lt;</span> 1<span style="color:#f92672">)</span> Mono<span style="color:#f92672">.</span><span style="color:#a6e22e">error</span><span style="color:#f92672">{</span> IllegalArgumentException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;oh!! invalid id&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">else</span> Mono<span style="color:#f92672">.</span><span style="color:#a6e22e">just</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Id Found!&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#f92672">}</span>
+
+fun <span style="color:#a6e22e">fallbackProcess</span><span style="color:#f92672">(</span>id<span style="color:#f92672">:</span> Int<span style="color:#f92672">,</span> exp<span style="color:#f92672">:</span> Throwable<span style="color:#f92672">):</span> Mono<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+    log<span style="color:#f92672">.</span><span style="color:#a6e22e">error</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;eh!!! this is the error ${exp.localizedMessage}&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">return</span> Mono<span style="color:#f92672">.</span><span style="color:#a6e22e">just</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;From fallback method: Id Not found &#34;</span><span style="color:#f92672">)</span>
+<span style="color:#f92672">}</span></code></pre></div></p>
+<hr>
+<p><em><strong>Run Application</strong></em></p>
+<p>Let&rsquo;s start the application and run the following command on the terminal.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">http :8080/process?id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span></code></pre></div>
+<p><strong>output</strong>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ http :8080/process?id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+HTTP/1.1 <span style="color:#ae81ff">200</span> OK
+Content-Type: text/event-stream;charset<span style="color:#f92672">=</span>UTF-8
+transfer-encoding: chunked
+
+data:Id Found!
+$ </code></pre></div></p>
+<p>Now let&rsquo;s try to fail the service sending the <code>id</code> param value as less than <code>1</code> as below</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">http :8080/process?id<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span></code></pre></div>
+<p><strong>output</strong>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ http :8080/process?id<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+HTTP/1.1 <span style="color:#ae81ff">200</span> OK
+Content-Type: text/event-stream;charset<span style="color:#f92672">=</span>UTF-8
+transfer-encoding: chunked
+
+data:From fallback method: Id Not found
+$ </code></pre></div></p>
+<p><em><strong>Source Code</strong></em>
+The full source code is available at <a href="https://github.com/vikasontech/spring-resillencerj-spring-boot-demo.git" target="_blank">GitHub</a></p>
+<p><em><strong>Reference</strong></em></p>
+<ul>
+<li><a href="https://resilience4j.readme.io/docs/getting-started-3">https://resilience4j.readme.io/docs/getting-started-3</a></li>
+<li><a href="https://resilience4j.readme.io/docs/circuitbreaker">https://resilience4j.readme.io/docs/circuitbreaker</a></li>
+</ul>
+</div>
+            </div>
+        </div>
+
+        
+        <div class="layui-col-md4 layui-col-sm12 layui-col-xs12">
+            <div class="layui-card single-card">
+                <h1 class="single-title">Relevant Topics</h1>
+                
+                	
+                    <div style="margin-left: 10px;">
+                        <blockquote class="layui-elem-quote" style="background-color:#FFFFFF;margin-top: 10px;">
+                            <a href="/post/spring-boot-resilience4j-circuitbreaker-example/">
+                                <h2 class="">Spring boot reactive and resilience4j circuit breaker example</h2>
+                            </a>
+                            <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 24px; vertical-align: -2px;"></i>
+    <span>2020-05-01</span>
+
+    
+    <i class="layui-icon layui-icon-tabs" style="font-size: 22px; vertical-align: 0px;"></i>
+    
+        <a href="/tags/spring-boot/">
+            <span class="layui-badge" style="vertical-align: 2px;">spring-boot</span>
+        </a>
+    
+        <a href="/tags/resilience4j/">
+            <span class="layui-badge" style="vertical-align: 2px;">resilience4j</span>
+        </a>
+    
+        <a href="/tags/circuitbreaker/">
+            <span class="layui-badge" style="vertical-align: 2px;">circuitbreaker</span>
+        </a>
+    
+        <a href="/tags/example/">
+            <span class="layui-badge" style="vertical-align: 2px;">example</span>
+        </a>
+    
+</h3>
+                        </blockquote>
+                    </div>
+                	
+                    <div style="margin-left: 10px;">
+                        <blockquote class="layui-elem-quote" style="background-color:#FFFFFF;margin-top: 10px;">
+                            <a href="/post/add-swagger-to-the-kotlin-spring-boot-project/">
+                                <h2 class="">Add swagger to the kotlin spring </h2>
+                            </a>
+                            <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 24px; vertical-align: -2px;"></i>
+    <span>2020-01-16</span>
+
+    
+    <i class="layui-icon layui-icon-tabs" style="font-size: 22px; vertical-align: 0px;"></i>
+    
+        <a href="/tags/swagger/">
+            <span class="layui-badge" style="vertical-align: 2px;">swagger</span>
+        </a>
+    
+        <a href="/tags/kotlin/">
+            <span class="layui-badge" style="vertical-align: 2px;">kotlin</span>
+        </a>
+    
+        <a href="/tags/spring-boot/">
+            <span class="layui-badge" style="vertical-align: 2px;">spring-boot</span>
+        </a>
+    
+</h3>
+                        </blockquote>
+                    </div>
+                	
+                    <div style="margin-left: 10px;">
+                        <blockquote class="layui-elem-quote" style="background-color:#FFFFFF;margin-top: 10px;">
+                            <a href="/post/secure-spring-boot-application-with-keycloak/">
+                                <h2 class="">Secure spring boot application with keycloak</h2>
+                            </a>
+                            <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 24px; vertical-align: -2px;"></i>
+    <span>2018-11-30</span>
+
+    
+    <i class="layui-icon layui-icon-tabs" style="font-size: 22px; vertical-align: 0px;"></i>
+    
+        <a href="/tags/keycloak/">
+            <span class="layui-badge" style="vertical-align: 2px;">keycloak</span>
+        </a>
+    
+        <a href="/tags/secrity/">
+            <span class="layui-badge" style="vertical-align: 2px;">secrity</span>
+        </a>
+    
+        <a href="/tags/spring-boot/">
+            <span class="layui-badge" style="vertical-align: 2px;">spring-boot</span>
+        </a>
+    
+</h3>
+                        </blockquote>
+                    </div>
+                	
+                    <div style="margin-left: 10px;">
+                        <blockquote class="layui-elem-quote" style="background-color:#FFFFFF;margin-top: 10px;">
+                            <a href="/post/setup-keycloak-sercurity-for-spring-boot-application/">
+                                <h2 class="">Setup keycloak sercurity for spring boot application</h2>
+                            </a>
+                            <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 24px; vertical-align: -2px;"></i>
+    <span>2018-11-30</span>
+
+    
+    <i class="layui-icon layui-icon-tabs" style="font-size: 22px; vertical-align: 0px;"></i>
+    
+        <a href="/tags/keycloak/">
+            <span class="layui-badge" style="vertical-align: 2px;">keycloak</span>
+        </a>
+    
+        <a href="/tags/security/">
+            <span class="layui-badge" style="vertical-align: 2px;">security</span>
+        </a>
+    
+        <a href="/tags/spring-boot/">
+            <span class="layui-badge" style="vertical-align: 2px;">spring-boot</span>
+        </a>
+    
+</h3>
+                        </blockquote>
+                    </div>
+                	
+                
+                <br />
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+        </div><footer>
+    
+
+    <div class="layui-container">
+        <div class="layui-row">
+            <div class="layui-col-md4 layui-col-sm6 layui-col-xs6">
+              
+            </div>
+        </div>
+        <div class="layui-row">
+            
+            <div class="layui-col-md4 layui-col-sm6 layui-col-xs12">
+                <a href="/"><p class="footer-url">home</p></a>
+            </div>
+            
+            <div class="layui-col-md4 layui-col-sm6 layui-col-xs12">
+                <a href="/about/"><p class="footer-url">About</p></a>
+            </div>
+            
+        </div>
+    </div>
+    
+    
+    <div class="layui-container">
+        <p class="copyright">Copyright © 2019–2020, Vikas Verma</p>
+    </div>
+</footer>
+
+</body>
+</html>
