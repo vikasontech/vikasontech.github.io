@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>spring on Vikas Blogs</title>
+    <title>Spring on Vikas Blogs</title>
     <link>https://vikasontech.github.io/tags/spring/</link>
-    <description>Recent content in spring on Vikas Blogs</description>
+    <description>Recent content in Spring on Vikas Blogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 03 May 2020 23:11:17 +0700</lastBuildDate>
@@ -22,6 +22,19 @@ In this project we shall see how to use testcontainer to test the repository cre
 Prerequisit
  Docker  Create sample project
 Go to the spring initializer and create project with language as kotlin and dependencies required are webflux &amp;amp; reactive mongo db</description>
+    </item>
+    
+    <item>
+      <title>JPA EntityListner example with Spring Boot 1.5.1</title>
+      <link>https://vikasontech.github.io/post/jpa-entitylistner-example-with-spring/</link>
+      <pubDate>Tue, 25 Apr 2017 18:46:45 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/post/jpa-entitylistner-example-with-spring/</guid>
+      <description>Introduction
+To audit any transaction table you can use EntityListener Annotation of the JPA. JPA provide the EntityListener annotations that attach a listener class with the entity that you want to audit.
+What is audit table ?
+Audit Tables are used to track transactions against a particular table or tables. They allow you to see an ongoing &amp;ldquo;log&amp;rdquo; for future use.
+There may be users and/or applications that have access to insert, update, and delete out of that table.</description>
     </item>
     
   </channel>

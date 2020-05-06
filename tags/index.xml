@@ -39,7 +39,7 @@
     </item>
     
     <item>
-      <title>spring</title>
+      <title>Spring</title>
       <link>https://vikasontech.github.io/tags/spring/</link>
       <pubDate>Sun, 03 May 2020 23:11:17 +0700</pubDate>
       
@@ -215,6 +215,42 @@
       <pubDate>Fri, 23 Feb 2018 16:23:39 +0700</pubDate>
       
       <guid>https://vikasontech.github.io/tags/oauth2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ApplicationContext</title>
+      <link>https://vikasontech.github.io/tags/applicationcontext/</link>
+      <pubDate>Tue, 25 Apr 2017 18:46:45 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/tags/applicationcontext/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Audit</title>
+      <link>https://vikasontech.github.io/tags/audit/</link>
+      <pubDate>Tue, 25 Apr 2017 18:46:45 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/tags/audit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JPA</title>
+      <link>https://vikasontech.github.io/tags/jpa/</link>
+      <pubDate>Tue, 25 Apr 2017 18:46:45 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/tags/jpa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Simple Spring Program</title>
+      <link>https://vikasontech.github.io/tags/simple-spring-program/</link>
+      <pubDate>Tue, 25 Apr 2017 18:46:45 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/tags/simple-spring-program/</guid>
       <description></description>
     </item>
     

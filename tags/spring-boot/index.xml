@@ -91,5 +91,18 @@ The code used in this article is available in this repository GitHub.
 We create two Entity Classes, one is User and another is Role. User entity class contains user details like name, password, roles details, and role entity contains the role details.</description>
     </item>
     
+    <item>
+      <title>JPA EntityListner example with Spring Boot 1.5.1</title>
+      <link>https://vikasontech.github.io/post/jpa-entitylistner-example-with-spring/</link>
+      <pubDate>Tue, 25 Apr 2017 18:46:45 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/post/jpa-entitylistner-example-with-spring/</guid>
+      <description>Introduction
+To audit any transaction table you can use EntityListener Annotation of the JPA. JPA provide the EntityListener annotations that attach a listener class with the entity that you want to audit.
+What is audit table ?
+Audit Tables are used to track transactions against a particular table or tables. They allow you to see an ongoing &amp;ldquo;log&amp;rdquo; for future use.
+There may be users and/or applications that have access to insert, update, and delete out of that table.</description>
+    </item>
+    
   </channel>
 </rss>
