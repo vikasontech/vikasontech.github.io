@@ -23,5 +23,21 @@ Version:
  Keycloak: 4.5.0.Final Pre-requisites Keycloak should be installed in the  Create realm A realm secures and manages security metadata for a set of users, applications, and registered oauth clients. Users can be created within a specific realm within the Administration console.</description>
     </item>
     
+    <item>
+      <title>Spring Security With JWT and Oauth2 With Spring Boot</title>
+      <link>https://vikasontech.github.io/post/spring-security-with-jwt-and-oauth2-with-spring-boot/</link>
+      <pubDate>Fri, 23 Feb 2018 16:23:39 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/post/spring-security-with-jwt-and-oauth2-with-spring-boot/</guid>
+      <description>Introduction
+In this article we shall see example of how to secure a spring boot rest application with Spring Boot2, Spring Security, Oauth2, and JWT token.
+1. Source Code Repository
+The code used in this article is available in this repository GitHub.
+2. Dependencies
+ 2.1. Versions
+ Spring Boot: 2.1.3.RELEASE Java: 1.8  3. Entity Class
+We create two Entity Classes, one is User and another is Role. User entity class contains user details like name, password, roles details, and role entity contains the role details.</description>
+    </item>
+    
   </channel>
 </rss>

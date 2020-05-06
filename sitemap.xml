@@ -192,4 +192,19 @@
     <lastmod>2018-11-18T11:49:10+07:00</lastmod>
   </url>
   
+  <url>
+    <loc>https://vikasontech.github.io/tags/jwt/</loc>
+    <lastmod>2018-02-23T16:23:39+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/tags/oauth2/</loc>
+    <lastmod>2018-02-23T16:23:39+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/post/spring-security-with-jwt-and-oauth2-with-spring-boot/</loc>
+    <lastmod>2018-02-23T16:23:39+07:00</lastmod>
+  </url>
+  
 </urlset>

@@ -1,0 +1,390 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Vikas Blogs - Spring Security With JWT and Oauth2 With Spring Boot </title>
+
+    
+    
+    <meta content="spring-boot, jwt, oauth2, security, Technical" name="keywords">
+    
+    <meta content="Vikas Blogs - Introduction
+In this article we shall see example of how to secure a spring boot rest application with Spring Boot2, Spring Security, Oauth2, and JWT token.
+1. Source Code Repository
+The code used in this article is available in this repository GitHub.
+2. Dependencies
+ 2.1. Versions
+ Spring Boot: 2.1.3.RELEASE Java: 1.8  3. Entity Class
+We create two Entity Classes, one is User and another is Role. User entity class contains user details like name, password, roles details, and role entity contains the role details." name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" async
+        src="/mathjax-3.0.0/tex-mml-chtml.js">
+    </script>
+    
+
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/self/css/default.css">
+    <script src="/layui/layui.js"></script>
+
+
+    <link rel="stylesheet" async href="/self/css/markdown.min.css">
+    <link rel="stylesheet" async href="/self/css/gallery.css">
+    <link rel="stylesheet" async href="/font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="/self/js/lazysizes.min.js" async></script></head>
+
+<body>
+    
+    <header class="layui-header layui-bg-cyan">
+
+    
+        <a href=""><img src="/self/img/avater.jpg" class="layui-nav-img" style="margin-left:10px;margin-top:-10px"></a>
+    
+    
+    <a class="nav-self-logo" href="/">
+        Vikas Blogs
+    </a>
+
+    <ul class="layui-nav layui-layout-right layui-bg-cyan" lay-filter="">
+        
+        
+        <li class="layui-nav-item" id="nav_big"><a href="/post/">Posts</a></li>
+        
+
+        
+
+        
+        <li class="layui-nav-item" id="nav_small">
+            <a href="javascript:;">
+                <i class="layui-icon layui-icon-app" style="font-size: 24px;"></i>
+            </a>
+
+            <dl class="layui-nav-child">
+                
+                <dd><a href="/post/">Posts</a></dd>
+                
+
+                
+            </dl>
+        </li>
+    </ul>
+</header>
+
+<script>
+layui.use('element', function(){
+  var element = layui.element;
+});
+</script>
+        <div id="content" style="min-height:80%">
+<div class="layui-container" style="margin-bottom: 10px">
+    
+
+    <div class="layui-row layui-col-space10">
+        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+            <div class="layui-card single-card">
+                <br />
+                <blockquote class="layui-elem-quote markdown-body single-title" >
+                    <h1>Spring Security With JWT and Oauth2 With Spring Boot</h1>
+                    <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 24px; vertical-align: -2px;"></i>
+    <span>2018-02-23</span>
+
+    
+    <i class="layui-icon layui-icon-tabs" style="font-size: 22px; vertical-align: 0px;"></i>
+    
+        <a href="/tags/spring-boot/">
+            <span class="layui-badge" style="vertical-align: 2px;">spring-boot</span>
+        </a>
+    
+        <a href="/tags/jwt/">
+            <span class="layui-badge" style="vertical-align: 2px;">jwt</span>
+        </a>
+    
+        <a href="/tags/oauth2/">
+            <span class="layui-badge" style="vertical-align: 2px;">oauth2</span>
+        </a>
+    
+        <a href="/tags/security/">
+            <span class="layui-badge" style="vertical-align: 2px;">security</span>
+        </a>
+    
+</h3>
+                </blockquote>
+                <div class="layui-card-body markdown-body single-content">
+                    <p><em><strong>Introduction</strong></em></p>
+<p>In this article we shall see example of how to secure a spring boot rest application with Spring Boot2, Spring Security, Oauth2, and JWT token.</p>
+<p><em><strong>1. Source Code Repository</strong></em></p>
+<p>The code used in this article is available in this repository GitHub.</p>
+<p><em><strong>2. Dependencies</strong></em></p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/d53cb08fbcec47830327e46053de4e00.js"></script>
+
+<p><em><strong>2.1. Versions</strong></em></p>
+<ul>
+<li>Spring Boot: 2.1.3.RELEASE</li>
+<li>Java: 1.8</li>
+</ul>
+<p><em><strong>3. Entity Class</strong></em></p>
+<p>We create two Entity Classes, one is User and another is Role. User entity class contains user details like name, password, roles details, and role entity contains the role details. One User may have many roles hence we to create many-to-many relationship between User and Role Entity.</p>
+<p><em><strong>3.1. User Entity.java</strong></em></p>
+<p>Entity class that contains the user details.</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/a14f3b0a4d3be3126da1d19481435fb7.js"></script>
+
+<p><em><strong>3.2. Role.java</strong></em></p>
+<p>Entity class that contains the user role data.</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/a620566440266c007388e3b6fbcbcf26.js"></script>
+
+<p><em><strong>4. Create CRUD Repository</strong></em></p>
+<p>We create spring CRUD repository class, to access user credentials from the database.</p>
+<p>Note: we create repository only for User entity class, because in User entity class we specify Many to Many relationship between User and Role entity, and <code>@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)</code> at line number 35 in User.java, will ensure that when new record save in User entity it will also save in Role entity.</p>
+<p><em><strong>4.1. UserRepository.java</strong></em></p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/3d6e10e550ed42b0ae172ce000d087ac.js"></script>
+
+<p><em><strong>5. Create a Spring boot Initialize class</strong></em></p>
+<p>This will boot the spring application.</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/02552a6cd2a36663a2ec98a4803ceef7.js"></script>
+
+<p>Now we need to create initial data for users create data.sql file and put it into resource directory.</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/901253919807eb5ba4a509240cf9db0c.js"></script>
+
+<p><em><strong>6. Controller class</strong></em></p>
+<p>Now create controller class to access the resources.</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/f29e2db7338f234672a8c8e1af1b7210.js"></script>
+
+<p>Now our basic application is created, just the start the application server to see the output.</p>
+<p>use <code>mvn spring-boot:run</code> to run the application</p>
+<p>After the server start just curl the below URL to check if everything is working correct or not</p>
+<p><code>curl http://localhost:8080/app/listAll</code></p>
+<p>Response -
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+  {
+    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>,
+    <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;vikas&#34;</span>,
+    <span style="color:#f92672">&#34;password&#34;</span>: <span style="color:#e6db74">&#34;$2a$04$lZj8KgBFkcPwgRWjH8DwBeCIR7HE6AsIZqTXu2VyeEw5sYLySNAGe&#34;</span>,
+    <span style="color:#f92672">&#34;firstName&#34;</span>: <span style="color:#e6db74">&#34;vikas&#34;</span>,
+    <span style="color:#f92672">&#34;lastName&#34;</span>: <span style="color:#e6db74">&#34;verma&#34;</span>,
+    <span style="color:#f92672">&#34;roles&#34;</span>: [
+      {
+        <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>,
+        <span style="color:#f92672">&#34;roleName&#34;</span>: <span style="color:#e6db74">&#34;ADMIN&#34;</span>,
+        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;admin role&#34;</span>
+      }
+    ]
+  },
+  {
+    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">2</span>,
+    <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;james&#34;</span>,
+    <span style="color:#f92672">&#34;password&#34;</span>: <span style="color:#e6db74">&#34;$2a$04$P2GbxPDh1MYNYyNn/bj.4.QxwDC2jze0xPQF4u6/cNpdkrPq3OdPy&#34;</span>,
+    <span style="color:#f92672">&#34;firstName&#34;</span>: <span style="color:#e6db74">&#34;james&#34;</span>,
+    <span style="color:#f92672">&#34;lastName&#34;</span>: <span style="color:#e6db74">&#34;james&#34;</span>,
+    <span style="color:#f92672">&#34;roles&#34;</span>: [
+      {
+        <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>,
+        <span style="color:#f92672">&#34;roleName&#34;</span>: <span style="color:#e6db74">&#34;ADMIN&#34;</span>,
+        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;admin role&#34;</span>
+      },
+      {
+        <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">2</span>,
+        <span style="color:#f92672">&#34;roleName&#34;</span>: <span style="color:#e6db74">&#34;USER&#34;</span>,
+        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;user role&#34;</span>
+      }
+    ]
+  }
+]</code></pre></div></p>
+<p><em><strong>7. Authentication and Authorization</strong></em></p>
+<p>Now since our basic application is working, it’s time to add authentication and authorization to our application.</p>
+<p>Add Dependencies for the Oauth2 Security</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/74561a889aad8462750f131b3610ad1e.js"></script>
+
+<p><em><strong>7.1. Set the properties related to security</strong></em></p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/bd69a732d39dc30fc6e86410dc8d578e.js"></script>
+
+<p>The detail of the properties is as below -</p>
+<ol>
+<li>
+<p><code>security.encoding-strength=256</code> size of the encoding.</p>
+</li>
+<li>
+<p><code>security.signing-key</code> is the sign key used to encode the token.</p>
+</li>
+<li>
+<p><code>security.security-realm</code> realm of the authentication. see</p>
+</li>
+<li>
+<p><code>security.jwt.client-id=client</code> Client Id.</p>
+</li>
+<li>
+<p><code>security.jwt.client-secret</code> It should be BCrypt format you can use this tool to encode any string to BCrypt</p>
+</li>
+<li>
+<p><code>security.jwt.grant-type=password</code> Grant type, it can be &ldquo;password&rdquo;, &ldquo;refresh-token&rdquo;.</p>
+</li>
+<li>
+<p><code>security.jwt.scope-read=read</code> read scope.</p>
+</li>
+<li>
+<p><code>security.jwt.scope-write=write</code> write scope.</p>
+</li>
+<li>
+<p><code>security.jwt.resource-ids=resource</code> resource id.</p>
+</li>
+</ol>
+<p><em><strong>7.3. JWTConfigProperties.java</strong></em></p>
+<p>Create a class to access the properties set in application property file.</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/479c8059b01f841a4a69ec50bf011cc5.js"></script>
+
+<p><em><strong>7.4. UserDetailServiceImpl.java</strong></em></p>
+<p>To access the user credentials from database, we need to implement interface UserDetailsService. It is used throughout the framework as a user DAO. The interface requires only one read-only method, which simplifies support for new data-access strategies.</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/d7229f63f811140852e4c3bf9eb46ddb.js"></script>
+
+<p><em><strong>7.5. WebSecurityConfig.java</strong></em></p>
+<p>Configure the web security by extending the WebSecurityConfigurerAdapter class. It provides a convenient base class for creating a WebSecurityConfigurer instance. The implementation allows customization by overriding methods.</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/08690cc7e65e0a2bd5ea03906febf166.js"></script>
+
+<p><code>Step#1</code> Configure UserDetailsService to AuthenticationManager class, and add a password encoder.</p>
+<p>*Autowire the userDetailsService instance.</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/874b011e971cb656b86b42cf2010486c.js"></script>
+
+<p><code>Step#2</code> Now create AuthenticationManager bean</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/874b011e971cb656b86b42cf2010486c.js"></script>
+
+<p>Since we are using password as grant-type we need to provide the AuthenticationManager implementation.</p>
+<p><code>Step#3</code> Configure the JWT Token related beans -</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/0a0334c8eb576a6a5a2ce1a17f850d9a.js"></script>
+
+<p><code>tokenStore()</code> Create a new <code>JwtTokenStore</code> with this token enhancer(<code>accessTokenConverter</code>.</p>
+<p><code>accessTokenConverter()</code> Configure JWT signing key. It can be either a simple MAC key or an RSA key. RSA keys should be in OpenSSH format, as produced by ssh-keygen.</p>
+<p><code>tokenServices()</code> it is default implimentation of the tokenServices, it used to configure the resource related properties. In the tokenServices we used the default implementation of the TokeService interface, and set persistence strategy for token storage. the tokenStore, and configure to support the refresh token.</p>
+<p>Now enable Web Security in the application, and Global Method security-</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/5ca2c8c69baf0a7b44663c2de070624a.js"></script>
+
+<p><code>@EnableWebSecurity</code> : It allow the Spring Security configuration defined in any WebSecurityConfigurer or more likely by extending the WebSecurityConfigurerAdapter base class and overriding individual methods.</p>
+<p><code>@EnableGlobalMethodSecurity(prePostEnabled = true)</code> : Enables Spring Security global method security.</p>
+<p><code>@Order</code> : Define the order the security filter chain. The priority of the WebSecurityConfigurerAdapter is more than the resourceServerConfigurationAdapter, hence we re-define the order WebSecurityConfigurerAdapter</p>
+<p><em><strong>8. Define Authentication Manager</strong></em></p>
+<p>Create a class <code>AuthenticationServerConfig.java</code> that extends <code>AuthorizationServerConfigurerAdapter.java</code> to provides the default implementation for the AuthorizationServer. It is used to register the clients that can access the resource of the application, and also endpoints of the authorization server.</p>
+<p><em><strong>8.1. Configure Clients of the application</strong></em></p>
+<p>the code is self-explanatory, we jest configure the client details that are stored in memory. All the clients’ details are store in the application.property file.</p>
+<p>*Autowire the jwtConfigProperties instance.</p>
+<p><em><strong>8.2. Configure the Authorization endpoints</strong></em></p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/5b3fc5f82c2bbab35f318cacaa47b89e.js"></script>
+
+<p>*Autowire the jwtConfigProperties, jwtAccessTokenConverter, tokenStore and authenticationManager instance.</p>
+<p>Configure the tokenstore, and tokenEnhancer with the AuthorizationServerEndpointsConfigurer</p>
+<p>Configure the TokenStore, authenticationManager, and tokenEnhancerChain in the AuthorizationServerEndpointsConfigurer class.</p>
+<p><em><strong>8.3. Enable Authorization Server in the current application context</strong></em></p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/f8e4ee7f0d74fb2697d016d110350ef7.js"></script>
+
+<p><em><strong>9. Resource Server Configuration</strong></em></p>
+<p>Create a class <code>ResourceServerConfig.java</code> that extends <code>ResourceServerConfigurerAdapter.java</code></p>
+<p>This class is used to configure the resourceIds, and the http request URLs that are allowed to access the application, and the URLs that need to be authenticated.</p>
+<p><em><strong>9.1. Configure Resource Id</strong></em></p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/5bf685541e49b572e7ed89002562c335.js"></script>
+
+<p>*Autowire the jwtConfigProperties, defaultTokenService bean instances.</p>
+<p>Resource id is configured in <code>application.property </code>file. <code>defaultTokenService</code> is created in class <code>WebSecurityConfig</code>.</p>
+<p><em><strong>9.2. Configure HttpSecurity</strong></em></p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/0c234848552c269dd9b0d5004f267dee.js"></script>
+
+<p>This configuration says, authenticate all request that contains <code>&quot;/app/**&quot;</code>in there URL.</p>
+<p><em><strong>9.3. Enable the resource server configuration</strong></em></p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/03776f00af6b45c7c5a04035085c4b09.js"></script>
+
+<p><em><strong>10. Modify the controller class</strong></em></p>
+<p>Finally set the roles that can access the application using <code>@PostAuthorize</code> annotation</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/5e5c6405df88b355aaed86742214afef.js"></script>
+
+<p><em><strong>11. Run The application</strong></em></p>
+<p><em><strong>11.1 Run MySQL Database</strong></em></p>
+<p>Run below command to run the mysql db in docker</p>
+<p><code>docker-compose -f docker/docker-compose up</code></p>
+<p>Now all the configurations are done, now we can run the application using below maven command in terminal</p>
+<p><code>mvn spring-boot:run</code></p>
+<p><em><strong>11.1 Access Resource with User credentials</strong></em></p>
+<p>After server started, We can get the access token. Run below command to get the access token-</p>
+<p><em><strong>11.1.1. Get Access Token</strong></em></p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/6d9af9361b72403a5685f3613c0bddac.js"></script>
+
+<p>Result-</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;access_token&#34;</span>: <span style="color:#e6db74">&#34;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzb3VyY2UiXSwidXNlcl9uYW1lIjoidmlrYXMiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNTUyMDA5ODM2LCJhdXRob3JpdGllcyI6WyJBRE1JTiJdLCJqdGkiOiI3YWJkOThhNC1hNjM4LTRmYmQtOWYzMC0zZWJiNDQ0M2FhMTciLCJjbGllbnRfaWQiOiJjbGllbnQifQ.P0UgLpAuswCs8iHsxT4q23TI1infsIMqZ1YtMlbfWe8&#34;</span>,
+  <span style="color:#f92672">&#34;token_type&#34;</span>: <span style="color:#e6db74">&#34;bearer&#34;</span>,
+  <span style="color:#f92672">&#34;expires_in&#34;</span>: <span style="color:#ae81ff">43199</span>,
+  <span style="color:#f92672">&#34;scope&#34;</span>: <span style="color:#e6db74">&#34;read write&#34;</span>,
+  <span style="color:#f92672">&#34;jti&#34;</span>: <span style="color:#e6db74">&#34;7abd98a4-a638-4fbd-9f30-3ebb4443aa17&#34;</span>
+}</code></pre></div>
+<p><em><strong>11.2 Access Resource</strong></em></p>
+<p><em><strong>11.2.1. Get the access token</strong></em></p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/aa0fe6aa21e969c6a8e4133ed1f616a5.js"></script>
+
+<p>** &ldquo;Y2xpZW50OnNlY3JldA==&rdquo; is Base64 encoded client-id:secret. you can encode and decode in base64 format using this site. The format of client-id and client-secret should be &lsquo;client-id:secret&rsquo;.</p>
+<p>Result-</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;access_token&#34;</span>: <span style="color:#e6db74">&#34;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzb3VyY2UiXSwidXNlcl9uYW1lIjoidmlrYXMiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNTUyMDA5ODM2LCJhdXRob3JpdGllcyI6WyJBRE1JTiJdLCJqdGkiOiI3YWJkOThhNC1hNjM4LTRmYmQtOWYzMC0zZWJiNDQ0M2FhMTciLCJjbGllbnRfaWQiOiJjbGllbnQifQ.P0UgLpAuswCs8iHsxT4q23TI1infsIMqZ1YtMlbfWe8&#34;</span>
+  <span style="color:#e6db74">&#34;token_type&#34;</span>: <span style="color:#e6db74">&#34;bearer&#34;</span>,
+  <span style="color:#f92672">&#34;expires_in&#34;</span>: <span style="color:#ae81ff">43199</span>,
+  <span style="color:#f92672">&#34;scope&#34;</span>: <span style="color:#e6db74">&#34;read write&#34;</span>,
+  <span style="color:#f92672">&#34;jti&#34;</span>: <span style="color:#e6db74">&#34;7abd98a4-a638-4fbd-9f30-3ebb4443aa17&#34;</span>
+}</code></pre></div>
+<p><em><strong>11.2.2. Access Admin Resources</strong></em></p>
+<p>To access the resource that required admin privilege you need to get the access token with user james/james, because this user have admin privilege</p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/eb15055068f2984efbca36ce60002998.js"></script>
+
+<p>Result-</p>
+<p>Access admin resources -</p>
+<p>Hello Admin!!!</p>
+<p>Access user resources -</p>
+<p>Hello User!!!</p>
+<p><em><strong>11.2.3. Access the User resources</strong></em></p>
+<script type="application/javascript" src="https://gist.github.com/vikasontech/6246993ca66c85b8f0773ce7351b38a2.js"></script>
+
+<p>Result-
+Hello User!!!</p>
+<p>That&rsquo;s all for the Authentication and Authorization with Oauth2. You can access the resource from <a href="https://github.com/vikasontech/SpringSecurityWithOauth" target="_blank">GitHub</a>.</p>
+</div>
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+        </div><footer>
+    
+
+    <div class="layui-container">
+        <div class="layui-row">
+            <div class="layui-col-md4 layui-col-sm6 layui-col-xs6">
+              
+            </div>
+        </div>
+        <div class="layui-row">
+            
+            <div class="layui-col-md4 layui-col-sm6 layui-col-xs12">
+                <a href="/"><p class="footer-url">home</p></a>
+            </div>
+            
+            <div class="layui-col-md4 layui-col-sm6 layui-col-xs12">
+                <a href="/about/"><p class="footer-url">About</p></a>
+            </div>
+            
+        </div>
+    </div>
+    
+    
+    <div class="layui-container">
+        <p class="copyright">Copyright © 2019–2020, Vikas Verma</p>
+    </div>
+</footer>
+
+</body>
+</html>

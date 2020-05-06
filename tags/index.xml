@@ -200,5 +200,23 @@
       <description></description>
     </item>
     
+    <item>
+      <title>jwt</title>
+      <link>https://vikasontech.github.io/tags/jwt/</link>
+      <pubDate>Fri, 23 Feb 2018 16:23:39 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/tags/jwt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oauth2</title>
+      <link>https://vikasontech.github.io/tags/oauth2/</link>
+      <pubDate>Fri, 23 Feb 2018 16:23:39 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/tags/oauth2/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
