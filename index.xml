@@ -160,5 +160,17 @@ Audit Tables are used to track transactions against a particular table or tables
 There may be users and/or applications that have access to insert, update, and delete out of that table.</description>
     </item>
     
+    <item>
+      <title>Spring Boot Scheduling With Annotation</title>
+      <link>https://vikasontech.github.io/post/spring-boot-scheduling-with-annotation/</link>
+      <pubDate>Wed, 19 Apr 2017 19:40:17 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/post/spring-boot-scheduling-with-annotation/</guid>
+      <description>Introduction
+Spring Boot provides annotation support for task scheduling. It is easy way to develop and run a Task scheduler without using any xml and bean configurations Simply add the annotation @Scheduled on the task scheduler method with required interval time. In this example, we will see how to use Spring @Scheduledannotation to schedule a task.
+Enable scheduling annotations
+To enable support for @Scheduled annotation add @EnableScheduling to one of your @Configuration classes:</description>
+    </item>
+    
   </channel>
 </rss>

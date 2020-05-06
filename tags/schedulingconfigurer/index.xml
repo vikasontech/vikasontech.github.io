@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SchedulingConfigurer on Vikas Blogs</title>
+    <link>https://vikasontech.github.io/tags/schedulingconfigurer/</link>
+    <description>Recent content in SchedulingConfigurer on Vikas Blogs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 19 Apr 2017 19:40:17 +0700</lastBuildDate>
+    
+	<atom:link href="https://vikasontech.github.io/tags/schedulingconfigurer/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Spring Boot Scheduling With Annotation</title>
+      <link>https://vikasontech.github.io/post/spring-boot-scheduling-with-annotation/</link>
+      <pubDate>Wed, 19 Apr 2017 19:40:17 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/post/spring-boot-scheduling-with-annotation/</guid>
+      <description>Introduction
+Spring Boot provides annotation support for task scheduling. It is easy way to develop and run a Task scheduler without using any xml and bean configurations Simply add the annotation @Scheduled on the task scheduler method with required interval time. In this example, we will see how to use Spring @Scheduledannotation to schedule a task.
+Enable scheduling annotations
+To enable support for @Scheduled annotation add @EnableScheduling to one of your @Configuration classes:</description>
+    </item>
+    
+  </channel>
+</rss>
