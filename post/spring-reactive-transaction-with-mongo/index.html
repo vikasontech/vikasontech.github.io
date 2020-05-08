@@ -1,0 +1,423 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Vikas Blogs - Spring Reactive Transaction With Mongo </title>
+
+    
+    
+    <meta content="spring-boot, mongo, reactive, transaction, kotlin" name="keywords">
+    
+    <meta content="Vikas Blogs - In this blog post we will use ReactiveMongoTransactionManager class to manage the transaction." name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" async
+        src="/mathjax-3.0.0/tex-mml-chtml.js">
+    </script>
+    
+
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/self/css/default.css">
+    <script src="/layui/layui.js"></script>
+
+
+    <link rel="stylesheet" async href="/self/css/markdown.min.css">
+    <link rel="stylesheet" async href="/self/css/gallery.css">
+    <link rel="stylesheet" async href="/font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="/self/js/lazysizes.min.js" async></script></head>
+
+<body>
+    
+    <header class="layui-header layui-bg-cyan">
+
+    
+        <a href=""><img src="/self/img/avater.jpg" class="layui-nav-img" style="margin-left:10px;margin-top:-10px"></a>
+    
+    
+    <a class="nav-self-logo" href="/">
+        Vikas Blogs
+    </a>
+
+    <ul class="layui-nav layui-layout-right layui-bg-cyan" lay-filter="">
+        
+        
+        <li class="layui-nav-item" id="nav_big"><a href="/post/">Posts</a></li>
+        
+
+        
+
+        
+        <li class="layui-nav-item" id="nav_small">
+            <a href="javascript:;">
+                <i class="layui-icon layui-icon-app" style="font-size: 24px;"></i>
+            </a>
+
+            <dl class="layui-nav-child">
+                
+                <dd><a href="/post/">Posts</a></dd>
+                
+
+                
+            </dl>
+        </li>
+    </ul>
+</header>
+
+<script>
+layui.use('element', function(){
+  var element = layui.element;
+});
+</script>
+        <div id="content" style="min-height:80%">
+<div class="layui-container" style="margin-bottom: 10px">
+    
+
+    <div class="layui-row layui-col-space10">
+        <div class="layui-col-md8 layui-col-sm12 layui-col-xs12">
+            <div class="layui-card single-card">
+                <br />
+                <blockquote class="layui-elem-quote markdown-body single-title" >
+                    <h1>Spring Reactive Transaction With Mongo</h1>
+                    <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 24px; vertical-align: -2px;"></i>
+    <span>2020-05-08</span>
+
+    
+    <i class="layui-icon layui-icon-tabs" style="font-size: 22px; vertical-align: 0px;"></i>
+    
+        <a href="/tags/spring-boot/">
+            <span class="layui-badge" style="vertical-align: 2px;">spring-boot</span>
+        </a>
+    
+        <a href="/tags/mongo/">
+            <span class="layui-badge" style="vertical-align: 2px;">mongo</span>
+        </a>
+    
+        <a href="/tags/reactive/">
+            <span class="layui-badge" style="vertical-align: 2px;">reactive</span>
+        </a>
+    
+        <a href="/tags/transaction/">
+            <span class="layui-badge" style="vertical-align: 2px;">transaction</span>
+        </a>
+    
+        <a href="/tags/kotlin/">
+            <span class="layui-badge" style="vertical-align: 2px;">kotlin</span>
+        </a>
+    
+</h3>
+                </blockquote>
+                <div class="layui-card-body markdown-body single-content">
+                    <p><em><strong>Introduction</strong></em></p>
+<p>In this blog post we will use <a href="https://docs.spring.io/spring-data/data-mongodb/docs/current/api/org/springframework/data/mongodb/ReactiveMongoTransactionManager.html" target="_blank">ReactiveMongoTransactionManager</a> class to manage the transaction. Along with that we shall use the mongo db.</p>
+<p><em><strong>Version</strong></em></p>
+<ul>
+<li>Kotlin: 1.3.71</li>
+<li>Spring-boot: 2.2.6.RELEASEA</li>
+<li>Java: 11</li>
+<li>mongo db: 4.2.0-rc2-bionic</li>
+</ul>
+<p><em><strong>Dependencies</strong></em></p>
+<p>You can use <a href="https://start.spring.io/" target="_blank">Spring Initializer</a> to initialize the project you need following dependencies -</p>
+<ul>
+<li>Spring Reactive Web</li>
+<li>Spring Data Reactive MongoDB</li>
+</ul>
+<p><em><strong>Create <code>docker-compose.yml</code> file</strong></em></p>
+<p>I use docker for running the mongo db the docker compose file looks like this -</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#39;3.1&#39;</span>
+<span style="color:#66d9ef">services</span>:
+  <span style="color:#66d9ef">mongo</span>:
+    <span style="color:#66d9ef">container_name</span>: spring-reactive
+    <span style="color:#66d9ef">image</span>: mongo:<span style="color:#ae81ff">4.2.0</span>-rc2-bionic
+    <span style="color:#66d9ef">ports</span>:
+      - <span style="color:#ae81ff">27017</span>:<span style="color:#ae81ff">27017</span>
+    <span style="color:#66d9ef">environment</span>:
+      <span style="color:#66d9ef">MONGO_INITDB_ROOT_USERNAME</span>: root
+      <span style="color:#66d9ef">MONGO_INITDB_ROOT_PASSWORD</span>: example </code></pre></div>
+<p><em><strong>Configure MongoDb to the application</strong></em></p>
+<p>Add the following configurartion in the <code>application.yml</code> file.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#66d9ef">spring</span>:
+  <span style="color:#66d9ef">data</span>:
+    <span style="color:#66d9ef">mongodb</span>:
+      <span style="color:#66d9ef">uri</span>: mongodb://root:example@localhost:<span style="color:#ae81ff">27017</span>
+      <span style="color:#66d9ef">database</span>: customer
+      <span style="color:#66d9ef">authentication-database</span>: admin</code></pre></div>
+<p><em><strong>Create a User document</strong></em></p>
+<p>Create a User class that would have an <code>age</code> field. You shall not allow the user to create an account if the <code>age</code> of the user is below <code>18</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Document</span>
+data <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span><span style="color:#f92672">(</span>
+    <span style="color:#a6e22e">@Id</span>
+    val id<span style="color:#f92672">:</span> String<span style="color:#f92672">,</span>
+    val age<span style="color:#f92672">:</span> Int 
+<span style="color:#f92672">)</span></code></pre></div>
+<p><em><strong>Create a data repository for User document</strong></em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">CustomerRepo</span> <span style="color:#f92672">:</span> ReactiveCrudRepository<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span></code></pre></div>
+<p><em><strong>Create a service class</strong></em></p>
+<p>Now create a service class that would have a method called <code>saveAll</code>. The <code>saveAll</code> method will accept the list of an Int array, create the user object, validate the age and the save data to the database.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">fun <span style="color:#a6e22e">saveAll</span><span style="color:#f92672">(</span>vararg ages<span style="color:#f92672">:</span> Int<span style="color:#f92672">):</span> Flux<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">return</span> Flux<span style="color:#f92672">.</span><span style="color:#a6e22e">fromIterable</span><span style="color:#f92672">(</span>ages<span style="color:#f92672">.</span><span style="color:#a6e22e">asIterable</span><span style="color:#f92672">())</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">map</span> <span style="color:#f92672">{</span>
+        User<span style="color:#f92672">(</span>id <span style="color:#f92672">=</span> UUID<span style="color:#f92672">.</span><span style="color:#a6e22e">randomUUID</span><span style="color:#f92672">().</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(),</span>
+            age <span style="color:#f92672">=</span> it<span style="color:#f92672">)</span>
+      <span style="color:#f92672">}</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">doOnNext</span> <span style="color:#f92672">{</span> Assert<span style="color:#f92672">.</span><span style="color:#a6e22e">isTrue</span><span style="color:#f92672">(</span>it<span style="color:#f92672">.</span><span style="color:#a6e22e">age</span> <span style="color:#f92672">&gt;=</span> 18<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Age should be greater or equal to 18&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">}</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">flatMap</span> <span style="color:#f92672">{</span> userRepo<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>it<span style="color:#f92672">)</span> <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<p><em><strong>Make the service transactional</strong></em></p>
+<p>To add the transactional support to the application, provide two beans <code>transactionManager</code> and <code>transactionOperator</code> to enable the transactions.</p>
+<p><em><strong>Create a transaction manager</strong></em></p>
+<p>Create a <code>ReactiveTransactionManager</code> that will manages the client sessions for the given <code>ReactiveMongoDatabaseFactory</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Bean</span>
+fun <span style="color:#a6e22e">transactionManager</span><span style="color:#f92672">(</span>rdbf<span style="color:#f92672">:</span> ReactiveMongoDatabaseFactory<span style="color:#f92672">):</span> ReactiveMongoTransactionManager <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">return</span> ReactiveMongoTransactionManager<span style="color:#f92672">(</span>rdbf<span style="color:#f92672">)</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<p><em><strong>Create a transaction operator</strong></em></p>
+<p>Operator class that simplifies programmatic transaction demarcation and transaction exception handling. Create a new <code>TransactionalOperator</code> using <code>ReactiveTransactionManager</code>, using a default transaction.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Bean</span>
+fun <span style="color:#a6e22e">transactionOperator</span><span style="color:#f92672">(</span>rtm<span style="color:#f92672">:</span> ReactiveTransactionManager<span style="color:#f92672">):</span> TransactionalOperator <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">return</span> TransactionalOperator<span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">(</span>rtm<span style="color:#f92672">)</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<p><em><strong>Add transaction to the service</strong></em></p>
+<p>You can add the transaction by wrapping the callback in the <code>execute</code> method of <code>transactionOperator</code> like below -</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">val data <span style="color:#f92672">=</span> Flux<span style="color:#f92672">.</span><span style="color:#a6e22e">fromIterable</span><span style="color:#f92672">(</span>ages<span style="color:#f92672">.</span><span style="color:#a6e22e">asIterable</span><span style="color:#f92672">())</span>
+  <span style="color:#f92672">.</span><span style="color:#a6e22e">map</span> <span style="color:#f92672">{</span>
+    User<span style="color:#f92672">(</span>id <span style="color:#f92672">=</span> UUID<span style="color:#f92672">.</span><span style="color:#a6e22e">randomUUID</span><span style="color:#f92672">().</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(),</span>
+        age <span style="color:#f92672">=</span> it<span style="color:#f92672">)</span>
+  <span style="color:#f92672">}</span>
+  <span style="color:#f92672">.</span><span style="color:#a6e22e">doOnNext</span> <span style="color:#f92672">{</span> Assert<span style="color:#f92672">.</span><span style="color:#a6e22e">isTrue</span><span style="color:#f92672">(</span>it<span style="color:#f92672">.</span><span style="color:#a6e22e">age</span> <span style="color:#f92672">&gt;=</span> 18<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Age should be greater or equal to 18&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">}</span>
+  <span style="color:#f92672">.</span><span style="color:#a6e22e">flatMap</span> <span style="color:#f92672">{</span> userRepo<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>it<span style="color:#f92672">)</span> <span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">return</span> transactionalOperator<span style="color:#f92672">.</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">{</span> data<span style="color:#f92672">}</span> </code></pre></div>
+<p>OR</p>
+<p>You can use annotation <code>@Transactional</code> at the method, which you want to make transactional</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Transactional</span>
+fun <span style="color:#a6e22e">saveAll</span><span style="color:#f92672">(</span>vararg ages<span style="color:#f92672">:</span> Int<span style="color:#f92672">):</span> Flux<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span></code></pre></div>
+<p><em><strong>Source Code</strong></em>
+Full source is available at <a href="#">GitHub</a></p>
+</div>
+            </div>
+        </div>
+
+        
+        <div class="layui-col-md4 layui-col-sm12 layui-col-xs12">
+            <div class="layui-card single-card">
+                <h1 class="single-title">Relevant Topics</h1>
+                
+                	
+                    <div style="margin-left: 10px;">
+                        <blockquote class="layui-elem-quote" style="background-color:#FFFFFF;margin-top: 10px;">
+                            <a href="/post/spring&#43;kotlin&#43;mongo&#43;testcontainer/">
+                                <h2 class="">Spring&#43;kotlin&#43;mongo&#43;testcontainer</h2>
+                            </a>
+                            <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 24px; vertical-align: -2px;"></i>
+    <span>2020-01-18</span>
+
+    
+    <i class="layui-icon layui-icon-tabs" style="font-size: 22px; vertical-align: 0px;"></i>
+    
+        <a href="/tags/testcontainer/">
+            <span class="layui-badge" style="vertical-align: 2px;">testcontainer</span>
+        </a>
+    
+        <a href="/tags/spring/">
+            <span class="layui-badge" style="vertical-align: 2px;">spring</span>
+        </a>
+    
+        <a href="/tags/kotlin/">
+            <span class="layui-badge" style="vertical-align: 2px;">kotlin</span>
+        </a>
+    
+        <a href="/tags/mongo/">
+            <span class="layui-badge" style="vertical-align: 2px;">mongo</span>
+        </a>
+    
+</h3>
+                        </blockquote>
+                    </div>
+                	
+                    <div style="margin-left: 10px;">
+                        <blockquote class="layui-elem-quote" style="background-color:#FFFFFF;margin-top: 10px;">
+                            <a href="/post/add-swagger-to-the-kotlin-spring-boot-project/">
+                                <h2 class="">Add swagger to the kotlin spring </h2>
+                            </a>
+                            <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 24px; vertical-align: -2px;"></i>
+    <span>2020-01-16</span>
+
+    
+    <i class="layui-icon layui-icon-tabs" style="font-size: 22px; vertical-align: 0px;"></i>
+    
+        <a href="/tags/swagger/">
+            <span class="layui-badge" style="vertical-align: 2px;">swagger</span>
+        </a>
+    
+        <a href="/tags/kotlin/">
+            <span class="layui-badge" style="vertical-align: 2px;">kotlin</span>
+        </a>
+    
+        <a href="/tags/spring-boot/">
+            <span class="layui-badge" style="vertical-align: 2px;">spring-boot</span>
+        </a>
+    
+</h3>
+                        </blockquote>
+                    </div>
+                	
+                    <div style="margin-left: 10px;">
+                        <blockquote class="layui-elem-quote" style="background-color:#FFFFFF;margin-top: 10px;">
+                            <a href="/post/spring-boot-resilience4j-circuitbreaker-annotation-example/">
+                                <h2 class="">Spring Boot Resilience4j Circuitbreaker Annotation Example</h2>
+                            </a>
+                            <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 24px; vertical-align: -2px;"></i>
+    <span>2020-05-03</span>
+
+    
+    <i class="layui-icon layui-icon-tabs" style="font-size: 22px; vertical-align: 0px;"></i>
+    
+        <a href="/tags/spring-boot/">
+            <span class="layui-badge" style="vertical-align: 2px;">spring-boot</span>
+        </a>
+    
+        <a href="/tags/resilience4j/">
+            <span class="layui-badge" style="vertical-align: 2px;">resilience4j</span>
+        </a>
+    
+        <a href="/tags/circuitbreaker/">
+            <span class="layui-badge" style="vertical-align: 2px;">circuitbreaker</span>
+        </a>
+    
+        <a href="/tags/example/">
+            <span class="layui-badge" style="vertical-align: 2px;">example</span>
+        </a>
+    
+</h3>
+                        </blockquote>
+                    </div>
+                	
+                    <div style="margin-left: 10px;">
+                        <blockquote class="layui-elem-quote" style="background-color:#FFFFFF;margin-top: 10px;">
+                            <a href="/post/spring-boot-resilience4j-circuitbreaker-example/">
+                                <h2 class="">Spring boot reactive and resilience4j circuit breaker example</h2>
+                            </a>
+                            <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 24px; vertical-align: -2px;"></i>
+    <span>2020-05-01</span>
+
+    
+    <i class="layui-icon layui-icon-tabs" style="font-size: 22px; vertical-align: 0px;"></i>
+    
+        <a href="/tags/spring-boot/">
+            <span class="layui-badge" style="vertical-align: 2px;">spring-boot</span>
+        </a>
+    
+        <a href="/tags/resilience4j/">
+            <span class="layui-badge" style="vertical-align: 2px;">resilience4j</span>
+        </a>
+    
+        <a href="/tags/circuitbreaker/">
+            <span class="layui-badge" style="vertical-align: 2px;">circuitbreaker</span>
+        </a>
+    
+        <a href="/tags/example/">
+            <span class="layui-badge" style="vertical-align: 2px;">example</span>
+        </a>
+    
+</h3>
+                        </blockquote>
+                    </div>
+                	
+                    <div style="margin-left: 10px;">
+                        <blockquote class="layui-elem-quote" style="background-color:#FFFFFF;margin-top: 10px;">
+                            <a href="/post/scala-mongo-example-with-akka-http-and-akka-stream/">
+                                <h2 class="">Scala Mongo example with akka-http and akka-stream</h2>
+                            </a>
+                            <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 24px; vertical-align: -2px;"></i>
+    <span>2019-12-23</span>
+
+    
+    <i class="layui-icon layui-icon-tabs" style="font-size: 22px; vertical-align: 0px;"></i>
+    
+        <a href="/tags/akka/">
+            <span class="layui-badge" style="vertical-align: 2px;">akka</span>
+        </a>
+    
+        <a href="/tags/akka-http/">
+            <span class="layui-badge" style="vertical-align: 2px;">akka-http</span>
+        </a>
+    
+        <a href="/tags/docker/">
+            <span class="layui-badge" style="vertical-align: 2px;">docker</span>
+        </a>
+    
+        <a href="/tags/sbt/">
+            <span class="layui-badge" style="vertical-align: 2px;">sbt</span>
+        </a>
+    
+        <a href="/tags/scala/">
+            <span class="layui-badge" style="vertical-align: 2px;">scala</span>
+        </a>
+    
+        <a href="/tags/scala/">
+            <span class="layui-badge" style="vertical-align: 2px;">scala</span>
+        </a>
+    
+        <a href="/tags/mongo/">
+            <span class="layui-badge" style="vertical-align: 2px;">mongo</span>
+        </a>
+    
+</h3>
+                        </blockquote>
+                    </div>
+                	
+                
+                <br />
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+        </div><footer>
+    
+
+    <div class="layui-container">
+        <div class="layui-row">
+            <div class="layui-col-md4 layui-col-sm6 layui-col-xs6">
+              
+            </div>
+        </div>
+        <div class="layui-row">
+            
+            <div class="layui-col-md4 layui-col-sm6 layui-col-xs12">
+                <a href="/"><p class="footer-url">home</p></a>
+            </div>
+            
+            <div class="layui-col-md4 layui-col-sm6 layui-col-xs12">
+                <a href="/about/"><p class="footer-url">About</p></a>
+            </div>
+            
+        </div>
+    </div>
+    
+    
+    <div class="layui-container">
+        <p class="copyright">Copyright © 2019–2020, Vikas Verma</p>
+    </div>
+</footer>
+
+</body>
+</html>

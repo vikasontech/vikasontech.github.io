@@ -6,10 +6,25 @@
     <description>Recent content in mongo on Vikas Blogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 18 Jan 2020 07:15:08 +0700</lastBuildDate>
+    <lastBuildDate>Fri, 08 May 2020 21:09:20 +0700</lastBuildDate>
     
 	<atom:link href="https://vikasontech.github.io/tags/mongo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Spring Reactive Transaction With Mongo</title>
+      <link>https://vikasontech.github.io/post/spring-reactive-transaction-with-mongo/</link>
+      <pubDate>Fri, 08 May 2020 21:09:20 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/post/spring-reactive-transaction-with-mongo/</guid>
+      <description>Introduction
+In this blog post we will use ReactiveMongoTransactionManager class to manage the transaction. Along with that we shall use the mongo db.
+Version
+ Kotlin: 1.3.71 Spring-boot: 2.2.6.RELEASEA Java: 11 mongo db: 4.2.0-rc2-bionic  Dependencies
+You can use Spring Initializer to initialize the project you need following dependencies -
+ Spring Reactive Web Spring Data Reactive MongoDB  Create docker-compose.yml file
+I use docker for running the mongo db the docker compose file looks like this -</description>
+    </item>
     
     <item>
       <title>Spring&#43;kotlin&#43;mongo&#43;testcontainer</title>

@@ -3,6 +3,56 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://vikasontech.github.io/tags/kotlin/</loc>
+    <lastmod>2020-05-08T21:09:20+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/tags/mongo/</loc>
+    <lastmod>2020-05-08T21:09:20+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/post/</loc>
+    <lastmod>2020-05-08T21:09:20+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/tags/reactive/</loc>
+    <lastmod>2020-05-08T21:09:20+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/tags/spring/</loc>
+    <lastmod>2020-05-08T21:09:20+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/post/spring-reactive-transaction-with-mongo/</loc>
+    <lastmod>2020-05-08T21:09:20+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/tags/spring-boot/</loc>
+    <lastmod>2020-05-08T21:09:20+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/tags/</loc>
+    <lastmod>2020-05-08T21:09:20+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/tags/transaction/</loc>
+    <lastmod>2020-05-08T21:09:20+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vikasontech.github.io/</loc>
+    <lastmod>2020-05-08T21:09:20+07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://vikasontech.github.io/categories/</loc>
     <lastmod>2020-05-03T23:11:17+07:00</lastmod>
   </url>
@@ -14,11 +64,6 @@
   
   <url>
     <loc>https://vikasontech.github.io/tags/example/</loc>
-    <lastmod>2020-05-03T23:11:17+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vikasontech.github.io/post/</loc>
     <lastmod>2020-05-03T23:11:17+07:00</lastmod>
   </url>
   
@@ -38,22 +83,7 @@
   </url>
   
   <url>
-    <loc>https://vikasontech.github.io/tags/spring/</loc>
-    <lastmod>2020-05-03T23:11:17+07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://vikasontech.github.io/post/spring-boot-resilience4j-circuitbreaker-annotation-example/</loc>
-    <lastmod>2020-05-03T23:11:17+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vikasontech.github.io/tags/spring-boot/</loc>
-    <lastmod>2020-05-03T23:11:17+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vikasontech.github.io/tags/</loc>
     <lastmod>2020-05-03T23:11:17+07:00</lastmod>
   </url>
   
@@ -63,23 +93,8 @@
   </url>
   
   <url>
-    <loc>https://vikasontech.github.io/</loc>
-    <lastmod>2020-05-03T23:11:17+07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://vikasontech.github.io/post/spring-boot-resilience4j-circuitbreaker-example/</loc>
     <lastmod>2020-05-01T14:45:44+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vikasontech.github.io/tags/kotlin/</loc>
-    <lastmod>2020-01-18T07:15:08+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vikasontech.github.io/tags/mongo/</loc>
-    <lastmod>2020-01-18T07:15:08+07:00</lastmod>
   </url>
   
   <url>
