@@ -20,5 +20,23 @@
       <description></description>
     </item>
     
+    <item>
+      <title>sample</title>
+      <link>https://vikasontech.github.io/categories/sample/</link>
+      <pubDate>Wed, 22 Apr 2020 22:19:36 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/categories/sample/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>test</title>
+      <link>https://vikasontech.github.io/categories/test/</link>
+      <pubDate>Wed, 22 Apr 2020 22:19:36 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/categories/test/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
