@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ratelimiter on Vikas Blogs</title>
+    <link>https://vikasontech.github.io/tags/ratelimiter/</link>
+    <description>Recent content in ratelimiter on Vikas Blogs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 28 Jun 2020 00:55:12 +0700</lastBuildDate>
+    
+	<atom:link href="https://vikasontech.github.io/tags/ratelimiter/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ratelimitter With Resilience4j Spring Boot2</title>
+      <link>https://vikasontech.github.io/post/ratelimitter-with-resilience4j-spring-boot2/</link>
+      <pubDate>Sun, 28 Jun 2020 00:55:12 +0700</pubDate>
+      
+      <guid>https://vikasontech.github.io/post/ratelimitter-with-resilience4j-spring-boot2/</guid>
+      <description>Introduction
+Rate limiting is technique to help to limit the number of requests or type of request received by by a server. It help to scale and increase the reliability of the system. As per resilience4j doc
+ Rate limiting is an imperative technique to prepare your API for scale and establish high availability and reliability of your service. But also, this technique comes with a whole bunch of different options of how to handle a detected limits surplus, or what type of requests you want to limit.</description>
+    </item>
+    
+  </channel>
+</rss>
