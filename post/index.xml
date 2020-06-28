@@ -18,7 +18,7 @@
       
       <guid>https://vikasontech.github.io/post/ratelimiter-with-resilience4j-spring-boot2/</guid>
       <description>Introduction
-Rate limiting is technique to help to limit the number of requests or type of request received by by a server. It help to scale and increase the reliability of the system. As per resilience4j doc
+Rate limiting is technique to help to limit the number of requests or type of request received by a server. It help to scale and increase the reliability of the system. As per resilience4j doc
  Rate limiting is an imperative technique to prepare your API for scale and establish high availability and reliability of your service. But also, this technique comes with a whole bunch of different options of how to handle a detected limits surplus, or what type of requests you want to limit.</description>
     </item>
     

@@ -122,7 +122,7 @@ layui.use('element', function(){
                 </blockquote>
                 <div class="layui-card-body markdown-body single-content">
                     <p><em><strong>Introduction</strong></em></p>
-<p>Rate limiting is technique to help to limit the number of requests or type of request received by by a server. It help to scale and increase the reliability of the system. As per resilience4j doc</p>
+<p>Rate limiting is technique to help to limit the number of requests or type of request received by a server. It help to scale and increase the reliability of the system. As per resilience4j doc</p>
 <blockquote>
 <p>Rate limiting is an imperative technique to prepare your API for scale and establish high availability and reliability of your service. But also, this technique comes with a whole bunch of different options of how to handle a detected limits surplus, or what type of requests you want to limit. You can simply decline this over limit request, or build a queue to execute them later or combine these two approaches in some way.</p>
 </blockquote>
@@ -186,7 +186,7 @@ layui.use('element', function(){
 <p>I created a simple service that takes no arguments, and return some string mono. We shall add the <code>@RateLimiter</code> annotation, and pass the config name and fallback method name, that would be call in case of request denied by the rate limiter.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RateLimiter</span><span style="color:#f92672">(</span>name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;processService&#34;</span><span style="color:#f92672">,</span> fallbackMethod <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;processFallback&#34;</span><span style="color:#f92672">)</span>
 fun <span style="color:#a6e22e">process</span><span style="color:#f92672">():</span> Mono<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
-  <span style="color:#66d9ef">return</span> Mono<span style="color:#f92672">.</span><span style="color:#a6e22e">just</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;ah what do you want ...&#34;</span><span style="color:#f92672">)</span>
+  <span style="color:#66d9ef">return</span> Mono<span style="color:#f92672">.</span><span style="color:#a6e22e">just</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello World ...&#34;</span><span style="color:#f92672">)</span>
 <span style="color:#f92672">}</span></code></pre></div>
 <p>The fallback method name is <code>processFallback</code> it should be in the same class and it should have the same signature but with an extra parameter for the <code>Throwable</code> class for the exception handling.</p>
 <p>So fallback method should look like this</p>
